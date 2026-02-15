@@ -34,7 +34,6 @@ h1 {
 .card {
     border: 2px solid black;
     display: grid;
-    aspect-ratio: 745 / 1040;
 
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: bold;
