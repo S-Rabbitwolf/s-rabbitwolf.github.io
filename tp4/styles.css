@@ -10,7 +10,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     background-color: azure;
     color: #0f0f0f;
-    align-items: center;
+    place-items: center;
 }
 
 h1 {
@@ -35,7 +35,6 @@ h1 {
 .space {
     border: 2px solid black;
     display: grid;
-    place-items: center;
 
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: bold;
