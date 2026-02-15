@@ -24,7 +24,7 @@ h1 {
     width: min(520px, 92vw);
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* for 4 columns */
+    grid-template-columns: repeat(4, minmax(0, 1fr));  /* for 4 columns */
     gap: 10px;
 
     padding: 10px;
@@ -40,5 +40,6 @@ h1 {
     font-weight: bold;
     place-items: center;
     
+    min-width: 0;
    
 }
