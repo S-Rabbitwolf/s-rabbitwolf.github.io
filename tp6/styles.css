@@ -55,3 +55,35 @@ body {
     height: 42px;
     object-fit: contain;
 }
+
+/* Most of these are going to be similar in setup but different enough to necessitate the different css elements */
+
+.condition p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.wind, .humidity {
+  padding: 0.75rem 0.9rem;
+  border: 2px solid rgba(245,245,245,0.5);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.2);
+  font-weight: 600;
+}
+
+.forecast h2 {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 0.75rem;
+}
+
+.day {
+    border: 2px solid rgba(245,245,245,0.5);
+    border-radius: 14px;
+    padding: 0.9rem;
+    background: rgba(0,0,0,0.2);
+    display: grid;
+    gap: 0.35rem;
+}
