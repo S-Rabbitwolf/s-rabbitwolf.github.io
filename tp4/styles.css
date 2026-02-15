@@ -32,15 +32,13 @@ h1 {
     border: 2px solid #fff;
 }
 
+ /* clamping the text allows it to scale between a min/max value on viewport width. It's necessary to make sure that the text isn't too small or misplaced. */
 .space {
     border: 2px solid black;
     display: grid;
-
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: bold;
-    place-items: center;
-    
-   
+    place-items: center;  
 }
 
  /* coloration based on grid positioning */
