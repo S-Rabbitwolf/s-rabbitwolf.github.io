@@ -22,19 +22,19 @@ h1 {
 
 .display {
     width: min(420px, 90vw);
-    aspect-ratio: 1 / 1;        /* board will maintain square shape regardless of size */
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* for 3 columns */
+    grid-template-columns: repeat(4, 1fr);  /* for 4 columns */
     gap: 10px;
 
     padding: 10px;
-    border: 2px solid #fff;
+    border: 2px solid #000000;
 }
 
-.space {
+.card {
     border: 2px solid black;
     display: grid;
+    aspect-ratio: 745 / 1040;
 
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: bold;
@@ -42,13 +42,3 @@ h1 {
     
    
 }
-
- /* coloration based on grid positioning */
-
- .space:nth-child(odd) {
-    background-color: aliceblue;
- }
- 
- .space:nth-child(even) {
-    background-color: blanchedalmond
- }
