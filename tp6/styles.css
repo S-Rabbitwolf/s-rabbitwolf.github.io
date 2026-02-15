@@ -37,3 +37,21 @@ body {
     display: grid;
     gap: 0.8rem;
 }
+
+.temp {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.condition img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
