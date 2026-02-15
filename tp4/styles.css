@@ -40,5 +40,15 @@ h1 {
     font-weight: bold;
     place-items: center;
     
-
+   
 }
+
+ /* coloration based on grid positioning */
+
+ .space:nth-child(odd) {
+    background-color: aliceblue;
+ }
+ 
+ .space:nth-child(even) {
+    background-color: blanchedalmond
+ }
