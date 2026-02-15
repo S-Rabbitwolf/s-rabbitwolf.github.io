@@ -87,3 +87,13 @@ body {
     display: grid;
     gap: 0.35rem;
 }
+
+.day h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.day p {
+  opacity: 0.95;
+  font-weight: 600;
+}
