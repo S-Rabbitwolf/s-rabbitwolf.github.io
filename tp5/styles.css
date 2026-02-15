@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     display: grid;
     font-family: 'Times New Roman', Times, serif;
-    background-color: azure;
+    background-color: rgb(69, 87, 87);
     color: #0f0f0f;
     place-items: center;
 }
