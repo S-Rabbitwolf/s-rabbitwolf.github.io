@@ -48,7 +48,12 @@ let board = [a, b, c];
   return "d";
 }
 
+//The initial value for the 'player' essentially just starting off as X. It is changed to O upon clic by the allSpaces click Event Listener string, which changes
+//the next alloted letter in sequence
+
 let currentPlayer ="X";
+
+//Waits for page to load before the game can begin
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -69,10 +74,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let winner = checkGameboard(rowA, rowB, rowC);
 
+        //This will check for a draw state
+
+        let drawCheck = false;
+
+        for (let i = 0; i < 3; i++) {
+          if (rowA[i] === "-" || rowB[i] === "-" || rowC[i] === "-") {
+            drawCheck = true;
+          }
+        }
+
+        
+
+        //For winning the game if X or O fills the appropriate rows. Will likely change to scrolling text and a little bit of funny confetti instead of an alert.
+
         if (winner === "X" || winner === "O") {
           alert(winner + " wins");
-        } else {
+        } else if (drawCheck) {
+          alert("It's a draw!!");
 
+
+        //Essentially, if the current player is X, it will become O upon clicking since it is tied to the click listener.
+        } else {
         if (currentPlayer === "X") {
           currentPlayer = "O";
         } else {
