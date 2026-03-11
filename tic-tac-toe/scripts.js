@@ -4,7 +4,7 @@ let rowA = [ "x", "x", "o" ];
 let rowB = [ "x", "x", "o" ];
 let rowC = [ "-", "o", "x" ];
 
-function spaceMatch(spaceA, spaceB, spaceC) {-
+function spaceMatch(spaceA, spaceB, spaceC) {
 
 }
 
@@ -33,8 +33,8 @@ let board = [a, b, c];
 
   // diagonals
   
-  if (board[0][1] !== "-" &&
-     board[0][1] === board[1][1] &&
+  if (board[0][0] !== "-" &&
+     board[0][0] === board[1][1] &&
      board[1][1] === board[2][2]) {
     return board[0][0];
    }
@@ -48,18 +48,16 @@ let board = [a, b, c];
   return "d";
 }
 
-document.addEventListener("DOMContentLoaded", function()){
+document.addEventListener("DOMContentLoaded", function() {
 
     let allSpaces = document.querySelectorAll(".space");
 
-    for (x = 0; x < allSpaces.length; x++) {
+    for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
         this.innerHTML = "x";
+      }
       });
-    }
-}
-
-
+    
 
 
 /* Commenting
