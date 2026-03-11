@@ -55,8 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
         this.innerHTML = "x";
-      }
       });
+    }
+  });
     
 
 
