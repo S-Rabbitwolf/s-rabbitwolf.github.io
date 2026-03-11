@@ -7,8 +7,19 @@ let rowC = [ "-", "-", "-" ];
 
 
 
-function checkGameboard(a, b, c) {
+function checkGameboard(a, b, c) 
   
+document.addEventListener("DOMContentLoaded", function()){
+
+}
+
+    let allSpaces = document.querySelectorAll(".space");
+
+    for (x = 0; x < allSpaces.length; x++) {
+        allSpaces[x].addEventListener("click", function(){
+            this.innerHTML = "x";
+        }
+    }
 
 let board = [a, b, c];
   
@@ -50,7 +61,7 @@ let board = [a, b, c];
 
 
 
-
+/* Commenting
 
 
 // get a handle on the DOM element to be updated with the outcome
