@@ -48,6 +48,8 @@ let board = [a, b, c];
   return "d";
 }
 
+let currentPlayer ="X";
+
 document.addEventListener("DOMContentLoaded", function() {
 
     let allSpaces = document.querySelectorAll(".space");
@@ -55,7 +57,13 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
       if (this.innerHTML === "") {
-        this.innerHTML = "X";
+        this.innerHTML = "currentPlayer";
+
+        if (currentPlayer === "X") {
+          currentPlayer = "O";
+        } else {
+          currentPlayer = "X";
+        }
       };
     });
   }
