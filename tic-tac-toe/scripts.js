@@ -76,11 +76,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //This will check for a draw state
 
-        let drawCheck = false;
+        let drawCheck = true;
 
         for (let i = 0; i < 3; i++) {
           if (rowA[i] === "-" || rowB[i] === "-" || rowC[i] === "-") {
-            drawCheck = true;
+            drawCheck = false;
           }
         }
 
