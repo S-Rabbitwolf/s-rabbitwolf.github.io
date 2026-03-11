@@ -54,14 +54,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
-        this.innerHTML = "x";
+        this.innerHTML = "X";
       });
     }
   });
     
 
 
-/* Commenting
+//* Commenting
 
 
 // get a handle on the DOM element to be updated with the outcome
