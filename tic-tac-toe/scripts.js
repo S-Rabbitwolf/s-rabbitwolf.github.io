@@ -1,28 +1,14 @@
 // declare the board data for a game, using 3 arrays
 // "-" indicates unmarked, "x" indicates an X mark, "o" indicates an O mark
-let rowA = [ "-", "-", "-" ];
-let rowB = [ "-", "-", "-" ];
-let rowC = [ "-", "-", "-" ];
+let rowA = [ "x", "x", "o" ];
+let rowB = [ "x", "x", "o" ];
+let rowC = [ "-", "o", "x" ];
 
 
 
 
-function checkGameboard(a, b, c){-
-}
+function checkGameboard(a, b, c) {
   
-document.addEventListener("DOMContentLoaded", function(){
-
-
-        //to find all available spaces
-    let allSpaces = document.querySelectorAll(".space");
-
-    for (x = 0; x < allSpaces.length; x++) {
-        allSpaces[x].addEventListener("click", function(){
-            this.innerHTML = "x";
-        });
-    }
-
-});
 
 let board = [a, b, c];
   
@@ -46,9 +32,9 @@ let board = [a, b, c];
 
   // diagonals
   
-  if (board[0][i] !== "-" &&
-     board[0][i] === board[1][1] &&
-     board[1][i] === board[2][2]) {
+  if (board[0][1] !== "-" &&
+     board[0][1] === board[1][1] &&
+     board[1][1] === board[2][2]) {
     return board[0][0];
    }
   
