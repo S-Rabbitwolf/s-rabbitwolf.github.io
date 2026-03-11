@@ -48,6 +48,17 @@ let board = [a, b, c];
   return "d";
 }
 
+document.addEventListener("DOMContentLoaded", function()){
+
+    let allSpaces = document.querySelectorAll(".space");
+
+    for (x = 0; x < allSpaces.length; x++) {
+      allSpaces[x].addEventListener("click", function(){
+        this.innerHTML = "x";
+      });
+    }
+}
+
 
 
 
