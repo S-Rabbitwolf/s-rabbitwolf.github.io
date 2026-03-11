@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
       if (this.innerHTML === "") {
-        this.innerHTML = "currentPlayer";
+        this.innerHTML = currentPlayer;
 
         if (currentPlayer === "X") {
           currentPlayer = "O";
