@@ -84,15 +84,14 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
 
-        
-
         //For winning the game if X or O fills the appropriate rows. Will likely change to scrolling text and a little bit of funny confetti instead of an alert.
 
         if (winner === "X" || winner === "O") {
           alert(winner + " wins");
+
+        //For when the game is a draw.
         } else if (drawCheck) {
           alert("It's a draw!!");
-
 
         //Essentially, if the current player is X, it will become O upon clicking since it is tied to the click listener.
         } else {
