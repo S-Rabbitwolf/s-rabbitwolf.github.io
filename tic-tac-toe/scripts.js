@@ -7,19 +7,22 @@ let rowC = [ "-", "-", "-" ];
 
 
 
-function checkGameboard(a, b, c) 
+function checkGameboard(a, b, c){-
+}
   
-document.addEventListener("DOMContentLoaded", function()){
+document.addEventListener("DOMContentLoaded", function(){
 
 
-
+        //to find all available spaces
     let allSpaces = document.querySelectorAll(".space");
 
     for (x = 0; x < allSpaces.length; x++) {
-        allSpaces[x].addEventListener("click", function()){
+        allSpaces[x].addEventListener("click", function(){
             this.innerHTML = "x";
-        }
+        });
     }
+
+});
 
 let board = [a, b, c];
   
