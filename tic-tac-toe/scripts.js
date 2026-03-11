@@ -1,8 +1,8 @@
 // declare the board data for a game, using 3 arrays
 // "-" indicates unmarked, "x" indicates an X mark, "o" indicates an O mark
-let rowA = [ "x", "x", "o" ];
-let rowB = [ "x", "x", "o" ];
-let rowC = [ "-", "o", "x" ];
+let rowA = [ "-", "-", "-" ];
+let rowB = [ "-", "-", "-" ];
+let rowC = [ "-", "-", "-" ];
 
 function spaceMatch(spaceA, spaceB, spaceC) {
 
