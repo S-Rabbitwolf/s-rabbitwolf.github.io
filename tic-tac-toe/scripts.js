@@ -59,12 +59,27 @@ document.addEventListener("DOMContentLoaded", function() {
       if (this.innerHTML === "") {
         this.innerHTML = currentPlayer;
 
+        if (x < 3) {
+          rowA[x] = currentPlayer;
+        } else if (x < 6) {
+          rowB[x - 3] = currentPlayer;
+        } else {
+          rowC[x - 6] = currentPlayer;
+        }
+
+        let winner = checkGameboard(rowA, rowB, rowC);
+
+        if (winner === "X" || winner === "O") {
+          alert(winner + " wins");
+        } else {
+
         if (currentPlayer === "X") {
           currentPlayer = "O";
         } else {
           currentPlayer = "X";
         }
       };
+    }
     });
   }
 });
