@@ -84,5 +84,3 @@ if (winState == "x") {
 } else {
   gameOutputMsg.innerHTML = "unknown";
 }
-
-
