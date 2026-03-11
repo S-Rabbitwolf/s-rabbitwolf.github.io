@@ -4,8 +4,9 @@ let rowA = [ "x", "x", "o" ];
 let rowB = [ "x", "x", "o" ];
 let rowC = [ "-", "o", "x" ];
 
+function spaceMatch(spaceA, spaceB, spaceC) {-
 
-
+}
 
 function checkGameboard(a, b, c) {
   
