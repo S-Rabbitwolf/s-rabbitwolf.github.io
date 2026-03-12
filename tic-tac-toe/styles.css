@@ -54,3 +54,33 @@ h1 {
  .space:nth-child(even) {
     background-color: blanchedalmond
  }
+
+
+ #winneroverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    overflow: hidden;
+    z-index: 999;
+ }
+
+ #WWCD {
+    position: absolute;
+    top: 50%;
+    white-space: nowrap;
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: bold;
+    color: white;
+    transform: translateY(-50%);
+    animation: winnerScroll 8s linear infinite;
+ }
+
+ @keyframes winnerScroll {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+ }

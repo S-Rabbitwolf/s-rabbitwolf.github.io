@@ -61,6 +61,8 @@ let gameOver = false;
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    let winneroverlay = document.querySelector("#winneroverlay");
+    let winmess = document.querySelector("#WWCD");
     let allSpaces = document.querySelectorAll(".space");
 
     for (let x = 0; x < allSpaces.length; x++) {
@@ -91,12 +93,14 @@ document.addEventListener("DOMContentLoaded", function() {
         //For winning the game if X or O fills the appropriate rows. Will likely change to scrolling text and a little bit of funny confetti instead of an alert.
 
         if (winner === "X" || winner === "O") {
-          alert(winner + " wins");
+          winneroverlay.style.display = "block";
+          winmess.innerHTML = "Player " + winner + " Wins!"
           gameOver = true;
 
         //For when the game is a draw.
         } else if (drawCheck) {
-          alert("It's a draw!!");
+          winneroverlay.style.display = "block";
+          winmess.innerHTML = "It's a draw!!";
           gameOver = true;
 
         //Essentially, if the current player is X, it will become O upon clicking since it is tied to the click listener.
