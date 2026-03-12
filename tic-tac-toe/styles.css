@@ -111,7 +111,7 @@ h1 {
  @keyframes wobble {
     0% {transform: translateX(-50%) rotate(-5deg);}
     50% {transform: translateX(-50%) rotate(5deg);}
-    100% { transform: translateX(-50%) rotate(-5deg;)}
+    100% {transform: translateX(-50%) rotate(-5deg);}
  }
 
  @keyframes resetFade {
