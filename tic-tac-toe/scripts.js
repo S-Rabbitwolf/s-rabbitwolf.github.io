@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (winner === "X" || winner === "O") {
           winneroverlay.style.display = "block";
           winmess.innerHTML = "Player " + winner + " Wins!"
-          winsoun.currentTime = 0;
+          winsound.currentTime = 0;
           winsound.play();
           gameOver = true;
 
