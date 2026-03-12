@@ -64,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let winsound = document.querySelector("#winsound");
     let winneroverlay = document.querySelector("#winneroverlay");
     let winmess = document.querySelector("#WWCD");
+    let gameReset = document.querySelector("#Reset");
     let allSpaces = document.querySelectorAll(".space");
+    
 
     winsound.volume = 0.1;
 
@@ -115,11 +117,32 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
           currentPlayer = "X";
         }
-      };
+      }
     }
+  });
+}
+//Reset button which clears the board and resets the audio timer.
+
+    gameReset.addEventListener("click", function() {
+
+      rowA = [ "-", "-", "-" ];
+      rowB = [ "-", "-", "-" ];
+      rowC = [ "-", "-", "-" ];
+
+      for (let i = 0; i < allSpaces.length; i++) {
+        allSpaces[i].innerHTML = "";
+      }
+
+      currentPlayer = "X";
+      gameOver = false;
+
+      winneroverlay.style.display = "none";
+      winmess.innerHTML = "";
+
+      winsound.pause();
+      winsound.currentTime = 0;
     });
-  }
-});
+  });
     
 console.log(checkGameboard(rowA, rowB, rowC));
 
