@@ -68,6 +68,7 @@ h1 {
  #WWCD {
     position: absolute;
     top: 50%;
+    left: 100%;
     white-space: nowrap;
     font-size: clamp(2rem, 6vw, 5rem);
     font-weight: bold;
@@ -78,9 +79,9 @@ h1 {
 
  @keyframes winnerScroll {
     from {
-        left: 100%;
+        transform: translate(0, -50%);
     }
     to {
-        left: -100%;
+        transform: translate(-250vw, -50%);
     }
  }
