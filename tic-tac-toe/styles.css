@@ -99,13 +99,19 @@ h1 {
     border: solid white;
 
     opacity: 0;
-    animation: resetFade 1s ease forwards;
-    animation-delay: 4s;
+    animation: resetFade 1s ease forwards, wobble 2s ease-in-out infinite;
+    animation-delay: 4s, 4.5s;
  }
 
  #Reset:hover {
-    border: #0f0f0f;
-    background-color:azure;
+    border: solid rgb(235, 235, 235);
+    background-color:rgb(41, 78, 243);
+ }
+
+ @keyframes wobble {
+    0% {transform: translateX(-50%) rotate(-5deg);}
+    50% {transform: translateX(-50%) rotate(5deg);}
+    100% { transform: translateX(-50%) rotate(-5deg;)}
  }
 
  @keyframes resetFade {
