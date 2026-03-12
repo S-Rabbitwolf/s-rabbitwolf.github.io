@@ -61,9 +61,12 @@ let gameOver = false;
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    let winsound = document.querySelector("#winsound");
     let winneroverlay = document.querySelector("#winneroverlay");
     let winmess = document.querySelector("#WWCD");
     let allSpaces = document.querySelectorAll(".space");
+
+    winsound.volume = 0.1;
 
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
@@ -90,11 +93,13 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
 
-        //For winning the game if X or O fills the appropriate rows. Will likely change to scrolling text and a little bit of funny confetti instead of an alert.
+        //For winning the game if X or O fills the appropriate rows. The sound element only plays on winning the game. Because only winners deserve cool things.
 
         if (winner === "X" || winner === "O") {
           winneroverlay.style.display = "block";
           winmess.innerHTML = "Player " + winner + " Wins!"
+          winsoun.currentTime = 0;
+          winsound.play();
           gameOver = true;
 
         //For when the game is a draw.
