@@ -53,6 +53,10 @@ let board = [a, b, c];
 
 let currentPlayer ="X";
 
+//Upon a win or draw, any further input is prevented by changing this value to true.
+
+let gameOver = false;
+
 //Waits for page to load before the game can begin
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -61,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let x = 0; x < allSpaces.length; x++) {
       allSpaces[x].addEventListener("click", function(){
-      if (this.innerHTML === "") {
+      if (this.innerHTML === "" && !gameOver) {
         this.innerHTML = currentPlayer;
 
         if (x < 3) {
@@ -88,10 +92,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (winner === "X" || winner === "O") {
           alert(winner + " wins");
+          gameOver = true;
 
         //For when the game is a draw.
         } else if (drawCheck) {
           alert("It's a draw!!");
+          gameOver = true;
 
         //Essentially, if the current player is X, it will become O upon clicking since it is tied to the click listener.
         } else {
