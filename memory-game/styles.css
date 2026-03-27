@@ -53,6 +53,9 @@ h1 {
     object-fit: cover;
     inset: 0;
     transition: opacity 0.5s ease;
+/* To prevent dirty little cheaters. */
+    user-select: none;
+    -webkit-user-drag: none;
 }
 /* The front is hidden with 0 opacity. The :hover element swaps their positioning in an easing motion as stated above.*/
 .front {
