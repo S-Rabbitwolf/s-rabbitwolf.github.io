@@ -55,6 +55,7 @@ h1 {
     background-color: blanchedalmond
  }
 
+/* The overlay and text are all contained here. They are activated by the js which toggles when a winner is declared.*/
 
  #winneroverlay {
     position: fixed;

@@ -48,7 +48,7 @@ let board = [a, b, c];
   return "d";
 }
 
-//The initial value for the 'player' essentially just starting off as X. It is changed to O upon clic by the allSpaces click Event Listener string, which changes
+//The initial value for the 'player' essentially just starting off as X. It is changed to O upon click by the allSpaces click Event Listener string, which changes
 //the next alloted letter in sequence
 
 let currentPlayer ="X";
