@@ -83,5 +83,18 @@ function gameReset() {
     });
 
     winneroverlay.style.display = "none";
+    shuffleCards();
     TurnAgain();
 }
+
+// This function uses a Math designator to force the cards to position themselves randomly upon resetting. //
+
+function shuffleCards() {
+    cards.forEach(function(card) {
+        let randomPosition = Math.floor(Math.random() * cards.length);
+        card.style.order = randomPosition;
+    });
+}
+
+// To (hopefully) ensure it randomizes position every time the page loads. //
+shuffleCards()
