@@ -1,6 +1,13 @@
 // to enable all elements with the class of card. This way I don't have to make 24938732 elements for each individual one lol
 const cards = document.querySelectorAll(".card");
 
+let winsound = document.querySelector("#winsound");
+let winneroverlay = document.querySelector("#winneroverlay");
+let winmess = document.querySelector("#WWCD");
+let gameRevert = document.querySelector("#Reset");
+
+gameRevert.addEventListener("click", gameReset);
+
 let firstCard = null;
 let secondCard = null;
 let boardLock = false;
@@ -38,6 +45,9 @@ function checkMatch() {
 function keepCardsFlipped() {
     firstCard.classList.add("matched");
     secondCard.classList.add("matched");
+
+    WinnerCheck();
+
     TurnAgain();
 }
 
@@ -55,4 +65,23 @@ function TurnAgain() {
     firstCard = null;
     secondCard = null;
     boardLock = false;
+}
+
+// Enforcing the code to essentially say 'whenever everything has the matched class, you win the game. Go you! :)//
+function WinnerCheck() {
+    let matchedCards = document.querySelectorAll(".card.matched");
+
+    if (matchedCards.length === cards.length) {
+        winneroverlay.style.display = "block";
+    }
+}
+
+function gameReset() {
+    cards.forEach(function(card) {
+        card.classList.remove("flipped");
+        card.classList.remove("matched");
+    });
+
+    winneroverlay.style.display = "none";
+    TurnAgain();
 }

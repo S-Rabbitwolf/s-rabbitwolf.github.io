@@ -84,3 +84,73 @@ h1 {
 .card.matched .back {
     opacity: 0;
 }
+
+/* Temporarily? Stolen from the Tic-Tac-Toe game. */
+
+ #winneroverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    overflow: hidden;
+    z-index: 999;
+ }
+
+ #WWCD {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    white-space: nowrap;
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: bold;
+    color: white;
+    transform: translateY(-50%);
+    animation: winnerScroll 8s linear infinite;
+ }
+
+ @keyframes winnerScroll {
+    from {
+        transform: translate(0, -50%);
+    }
+    to {
+        transform: translate(-250vw, -50%);
+    }
+ }
+
+ #Reset {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: goldenrod;
+    color: black;
+    border: solid white;
+
+    opacity: 0;
+    animation: resetFade 1s ease forwards, wobble 2s ease-in-out infinite;
+    animation-delay: 4s, 1s;
+ }
+
+ #Reset:hover {
+    border: solid rgb(235, 235, 235);
+    background-color:rgb(41, 78, 243);
+ }
+
+ @keyframes wobble {
+    0% {transform: translateX(-50%) rotate(-5deg);}
+    50% {transform: translateX(-50%) rotate(5deg);}
+    100% {transform: translateX(-50%) rotate(-5deg);}
+ }
+
+ @keyframes resetFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        pointer-events: auto;
+    }
+ }
