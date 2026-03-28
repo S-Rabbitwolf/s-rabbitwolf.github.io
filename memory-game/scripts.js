@@ -1,7 +1,6 @@
 // to enable all elements with the class of card. This way I don't have to make 24938732 elements for each individual one lol
 const cards = document.querySelectorAll(".card");
 
-let winsound = document.querySelector("#winsound");
 let winneroverlay = document.querySelector("#winneroverlay");
 let winmess = document.querySelector("#WWCD");
 let gameRevert = document.querySelector("#Reset");
@@ -96,5 +95,5 @@ function shuffleCards() {
     });
 }
 
-// To (hopefully) ensure it randomizes position every time the page loads. //
+// To ensure it randomizes position every time the page loads. //
 shuffleCards()
