@@ -18,4 +18,11 @@ async function getData(url, options) {
   }
 }
 
+
+// get data sample, testing purposes
+
+getData(url, options).then(function (result) {
+    // result code for JSON object
+});
+
 // DOM wait commands
