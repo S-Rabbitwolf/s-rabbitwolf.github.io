@@ -12,6 +12,12 @@ const weatherOptions = {
 };
 
 
+//Update weather on passed object via DOM
+function updateWeather(weatherObject) {
+  console.log(weatherObject);
+  document.querySelector("#currentTemp").textContent =
+    weatherObject.current.temp_f + "°F";
+}
 
 // core function for JSON retrieval
 
@@ -42,6 +48,7 @@ getData(ipLookupURL, ipLookupOptions).then(function(result) {
 
 getData(weatherUrl, weatherOptions).then(function(weatherResult){
   console.log(weatherResult);
+  updateWeather(weatherResult);
 });
 
 
