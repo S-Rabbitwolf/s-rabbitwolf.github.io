@@ -44,5 +44,7 @@ getData(weatherUrl, weatherOptions).then(function(weatherResult){
   console.log(weatherResult);
 });
 
-// DOM wait commands
+
 });
+
+addEventListener("DOMContentLoaded")
