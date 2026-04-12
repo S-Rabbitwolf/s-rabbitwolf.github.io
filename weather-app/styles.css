@@ -18,6 +18,18 @@ body {
     padding: 1rem;
 }
 
+body::before {
+    content: "";  
+    position: fixed;
+    inset: 0;
+    background: #b7d7e8;
+    opacity: 0.5;
+    z-index: -1;
+
+    transition: background 0.8s ease, opacity 0.8s ease;
+
+}
+
 /* The grids allow for easy adjustment given further display implementations */
 
 .weather h1 {
