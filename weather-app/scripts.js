@@ -31,6 +31,12 @@ document.getElementById("search-form").addEventListener("submit", function(event
 //Update weather on passed object via DOM
 function updateWeather(weatherObject) {
   console.log(weatherObject);
+
+  //name of city updated when name is changed
+  document.getElementById("locationName").textContent =
+    weatherObject.location.name + ", " + weatherObject.location.region;
+
+    //Current temperature. This will continue for other measurable variables
   document.querySelector("#currentTemp").textContent =
     weatherObject.current.temp_f + "°F";
 
@@ -74,8 +80,3 @@ async function getData(url, options) {
 
 //Default city on the page load
 getWeather("London");
-
-
-
-
-addEventListener("DOMContentLoaded")
