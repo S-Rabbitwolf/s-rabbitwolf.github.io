@@ -105,3 +105,53 @@ body {
   font-weight: 600;
 }
 
+/* State-based background changes for JS */
+
+.weather {
+  min-height: 100vh;
+  transition: background 0.6s ease;
+}
+
+.sunny-bg {
+  background: linear-gradient(135deg, #7ec8ff, #ffe08a);
+  animation: pulseSunny 4s ease-in-out infinite;
+}
+
+.cloudy-bg {
+  background: linear-gradient(135deg, #7a7a7a, #b8b8b8);
+  animation: pulseCloudy 4s ease-in-out infinite;
+}
+
+.rainy-bg {
+  background: linear-gradient(135deg, #2f2a5a, #4b4f7a);
+  animation: pulseRainy 4s ease-in-out infinite;
+}
+
+.default-bg {
+  background: linear-gradient(135deg, #8bbfd9, #b7d7e8);
+  animation: pulseDefault 4s ease-in-out infinite;
+}
+
+@keyframes pulseSunny {
+  0% { background-size: 100% 100%; filter: brightness(1); }
+  50% { background-size: 108% 108%; filter: brightness(1.08); }
+  100% { background-size: 100% 100%; filter: brightness(1); }
+}
+
+@keyframes pulseCloudy {
+  0% { background-size: 100% 100%; filter: brightness(0.95); }
+  50% { background-size: 106% 106%; filter: brightness(1.02); }
+  100% { background-size: 100% 100%; filter: brightness(0.95); }
+}
+
+@keyframes pulseRainy {
+  0% { background-size: 100% 100%; filter: brightness(0.85); }
+  50% { background-size: 105% 105%; filter: brightness(0.95); }
+  100% { background-size: 100% 100%; filter: brightness(0.85); }
+}
+
+@keyframes pulseDefault {
+  0% { background-size: 100% 100%; filter: brightness(1); }
+  50% { background-size: 106% 106%; filter: brightness(1.04); }
+  100% { background-size: 100% 100%; filter: brightness(1); }
+}

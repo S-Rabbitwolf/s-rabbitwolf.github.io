@@ -55,6 +55,8 @@ function updateWeather(weatherObject) {
   document.getElementById("currentIcon").alt = 
       weatherObject.current.condition.text;
 
+  updateBackground(weatherObject.current.condition.text);
+
     // Forecast loop. The for (let) essentially tells the function to increment each day by the value indicated starting from 0, so i = 0.
     // Also, $ is an indicator for adding variables to DOM elements, in this case, i.
     for (let i = 0; i <3; i++) {
@@ -95,6 +97,31 @@ async function getData(url, options) {
 
   } catch (error) {
     console.error(error);
+  }
+}
+
+
+function updateBackground(conditionText) {
+  const weatherBackground = document.getElementById("weatherBackground");
+
+  // the base class which it resets to
+  weatherBackground.classList.remove(
+    "sunny-bg",
+    "cloudy-bg",
+    "rainy-bg",
+    "default-bg"
+  );
+
+  const condition = conditionText.toLowerCase();
+  // If condition includes 'sunny' OR 'clear' then it will set the weather class to sunny-bg which will let the CSS implement its style changes. Etc. etc. for further if/else.
+  if (condition.includes("sunny") || condition.includes("clear")) {
+    weatherBackground.classList.add("sunny-bg");
+  } else if (condition.includes("cloud")) {
+    weatherBackground.classList.add("cloudy-bg");
+  } else if (condition.includes("rain")) {
+    weatherBackground.classList.add("rainy-bg");
+  } else {
+    weatherBackground.classList.add("default-bg")
   }
 }
 
