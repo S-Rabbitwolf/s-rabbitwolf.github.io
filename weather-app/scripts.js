@@ -40,6 +40,15 @@ function updateWeather(weatherObject) {
   document.querySelector("#currentTemp").textContent =
     weatherObject.current.temp_f + "°F";
 
+    document.getElementById("currentCondition").textContent =
+    weatherObject.current.condition.text;
+
+    document.getElementById("currentWind").textContent =
+    "Wind: " + weatherObject.current.wind_mph + " mph " + weatherObject.current.wind_dir;
+
+    document.getElementById("currentHumidity").textContent = 
+    "Humidity: " + weatherObject.current.humidity + "%";
+
   document.querySelector("#currentIcon").src =
     "https:" + weatherObject.current.condition.icon;
 
