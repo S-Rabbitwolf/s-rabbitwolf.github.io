@@ -43,7 +43,7 @@ function updateWeather(weatherObject) {
   document.querySelector("#currentIcon").src =
     "https:" + weatherObject.current.condition.icon;
 
-  document.getElementById("#currentIcon").alt = 
+  document.getElementById("currentIcon").alt = 
       weatherObject.current.condition.text;
 
     // Forecast loop. The for (let) essentially tells the function to increment each day by the value indicated starting from 0, so i = 0.
