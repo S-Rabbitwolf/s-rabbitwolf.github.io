@@ -40,6 +40,12 @@ function updateWeather(weatherObject) {
   document.querySelector("#currentTemp").textContent =
     weatherObject.current.temp_f + "°F";
 
+  document.querySelector("#currentIcon").src =
+    "https:" + weatherObject.current.condition.icon;
+
+  document.getElementById("#currentIcon").alt = 
+      weatherObject.current.condition.text;
+
     // Forecast loop. The for (let) essentially tells the function to increment each day by the value indicated starting from 0, so i = 0.
     // Also, $ is an indicator for adding variables to DOM elements, in this case, i.
     for (let i = 0; i <3; i++) {
@@ -56,6 +62,12 @@ function updateWeather(weatherObject) {
 
       document.getElementById(`forecastDay${i + 1}Wind`).textContent =
       "Wind: " + day.day.maxwind_mph + " mph";
+
+      document.getElementById(`forecastDay${i + 1}Icon`).src =
+      "https:" + day.day.condition.icon;
+
+      document.getElementById(`forecastDay${i + 1}Icon`).alt =
+      day.day.condition.text;
     }
 }
 
