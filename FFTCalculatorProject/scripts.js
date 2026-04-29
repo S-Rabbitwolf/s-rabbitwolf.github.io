@@ -269,7 +269,8 @@ function buildLevelPathFromSegments() {
         }
 
         if (toLevel <= fromLevel) {
-            throw new Error("To Level must be higher than From Level.");
+            alert("To Level must be higher than From Level.");
+            return [];
         }
 
         levelPath.push({
@@ -294,6 +295,22 @@ function populateSingleJobDropdown(dropdown) {
         dropdown.appendChild(option);
     }
 }
+// For comparing stats in numerical fashion. 
+function compareStats(customStats, baselineStats) {
+    return {
+        hp: customStats.hp - baselineStats.hp,
+        mp: customStats.mp - baselineStats.mp,
+        speed: customStats.speed - baselineStats.speed,
+        pa: customStats.pa - baselineStats.pa,
+        ma: customStats.ma - baselineStats.ma
+    };
+}
+
+function formatDifference(value) {
+    if (value > 0) return "+" + value;
+    if (value < 0) return value;
+    return "+0";
+}
 
 function updatePreview() {
 
@@ -312,19 +329,104 @@ function updatePreview() {
 
 
 // CalculateFFTStats function for the test character.
-    const result = calculateFFTStats({
+    const customResult = calculateFFTStats({
         startingLevel: testCharacter.level,
         startingRawStats: testCharacter.rawStats,
         displayJob: selectedDisplayJob,
         includeLevelBreakdown: false,
         levelPath: levelPath
     });
-// Displaying only raw values based on the calculations
+
+    //build BASELINE path from the final job.
+    const baselinePath = buildBaselinePathFromFinalJob(levelPath);
+
+    const baselineResult = calculateFFTStats({
+        startingLevel: testCharacter.level,
+        startingRawStats: testCharacter.rawStats,
+        displayJob: selectedDisplayJob,
+        includeLevelBreakdown: false,
+        levelPath: baselinePath
+    });
+
+    const statDifference = compareStats(
+        customResult.finalDisplayStats,
+        baselineResult.finalDisplayStats
+    );
+
+
+// Displaying only final in-game values based on the calculations
     document.getElementById("previewOutput").textContent =
-        "Level " + result.endingLevel + " " + formatJobName(selectedDisplayJob) + "\n\n" +
-        "HP: " + result.finalDisplayStats.hp + "\n" +
-        "MP: " + result.finalDisplayStats.mp + "\n" +
-        "Speed: " + result.finalDisplayStats.speed + "\n" +
-        "PA: " + result.finalDisplayStats.pa + "\n" +
-        "MA: " + result.finalDisplayStats.ma;
+        "Level " + customResult.endingLevel + " " + formatJobName(selectedDisplayJob) + "\n\n" +
+        "HP: " + customResult.finalDisplayStats.hp + "\n" +
+        "MP: " + customResult.finalDisplayStats.mp + "\n" +
+        "Speed: " + customResult.finalDisplayStats.speed + "\n" +
+        "PA: " + customResult.finalDisplayStats.pa + "\n" +
+        "MA: " + customResult.finalDisplayStats.ma;
+
+        // for displaying comparison between base path and custom path
+
+    const baselineStartLevel = baselinePath[baselinePath.length - 1].fromLevel;
+    const baselineEndLevel = baselinePath[baselinePath.length - 1].toLevel;
+
+    document.getElementById("comparisonOutput").textContent =
+        "Compared to staying in " + formatJobName(selectedDisplayJob) +
+        " from level " + baselineStartLevel +
+        " to level " + baselineEndLevel + "\n\n" +
+
+        "Baseline Stats:\n" +
+        "HP: " + baselineResult.finalDisplayStats.hp + "\n" +
+        "MP: " + baselineResult.finalDisplayStats.mp + "\n" +
+        "Speed: " + baselineResult.finalDisplayStats.speed + "\n" +
+        "PA: " + baselineResult.finalDisplayStats.pa + "\n" +
+        "MA: " + baselineResult.finalDisplayStats.ma + "\n\n" +
+
+        "Difference:\n" +
+        "HP: " + formatDifference(statDifference.hp) + "\n" +
+        "MP: " + formatDifference(statDifference.mp) + "\n" +
+        "Speed: " + formatDifference(statDifference.speed) + "\n" +
+        "PA: " + formatDifference(statDifference.pa) + "\n" +
+        "MA: " + formatDifference(statDifference.ma);
+}
+
+
+// Baseline comparison. It compares stats on the final job if that individual had previously had that job before.
+function buildBaselinePathFromFinalJob(levelPath) {
+    const finalSegment = levelPath[levelPath.length - 1];
+    const finalJob = finalSegment.job;
+    const endingLevel = finalSegment.toLevel;
+
+    let firstFinalJobIndex = -1;
+
+    for (let i = 0; i < levelPath.length; i++) {
+        if (levelPath[i].job === finalJob) {
+            firstFinalJobIndex = i;
+            break;
+        }
+    }
+
+    if (firstFinalJobIndex === -1) {
+        throw new Error("Final job was not found in level path, but you'll probably never see this lol. If you do somethig has gone horribly wrong");
+    }
+
+    const baselinePath = [];
+
+    
+     // Keep all segments before the first time the final job appears. This preserves the character's path before committing to that job.
+
+    for (let i = 0; i < firstFinalJobIndex; i++) {
+        baselinePath.push({
+            job: levelPath[i].job,
+            fromLevel: levelPath[i].fromLevel,
+            toLevel: levelPath[i].toLevel
+        });
+    }
+
+     // From the first time the final job appears, compared against staying in that final job until the end.
+    baselinePath.push({
+        job: finalJob,
+        fromLevel: levelPath[firstFinalJobIndex].fromLevel,
+        toLevel: endingLevel
+    });
+
+    return baselinePath;
 }
