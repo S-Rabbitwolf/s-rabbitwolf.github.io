@@ -233,14 +233,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("calculate").addEventListener("click", function() {
             updatePreview();
         });
-
-        document.getElementById("jobSelect").addEventListener("change", function() {
-            updatePreview();
-        });
-
-        document.getElementById("targetLevel").addEventListener("input", function() {
-            updatePreview();
-        });
     });
 });
 
