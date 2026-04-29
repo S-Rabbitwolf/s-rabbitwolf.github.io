@@ -218,3 +218,35 @@ function calculateFFTStats(input) {
 //   .catch(function(err) {
 //        console.error("Didn't work. Didn't load:", err);
 //    });
+
+// Test input.
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("testing").addEventListener("click", function () {
+
+        // Create test character
+        const character = initializeCharacter("male");
+
+        //  test level path
+        const result = calculateFFTStats({
+            startingLevel: character.level,
+            startingRawStats: character.rawStats,
+            displayJob: "squire",
+
+            includeLevelBreakdown: false,
+
+            levelPath: [
+                { job: "squire", fromLevel: 1, toLevel: 10 },
+                { job: "knight", fromLevel: 10, toLevel: 20 }
+            ]
+        });
+
+        // Reslts get put into output section in html
+        document.getElementById("output").textContent =
+            JSON.stringify(result, null, 2);
+
+        console.log(result);
+    });
+
+});
