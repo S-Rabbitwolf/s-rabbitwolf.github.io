@@ -205,7 +205,7 @@ function calculateFFTStats(input) {
         return output;
     }
 
-    loadFFTData();
+    //loadFFTData();
 
 //testing connectivity, ignore
 // fetch("./arithmetician.json")
@@ -221,32 +221,50 @@ function calculateFFTStats(input) {
 
 // Test input.
 
-document.addEventListener("DOMContentLoaded", function () {
+let testCharacter = null;
 
-    document.getElementById("testing").addEventListener("click", function () {
+document.addEventListener("DOMContentLoaded", function() {
+    loadFFTData().then(function() {
+        testCharacter = initializeCharacter("male");
 
-        // Create test character
-        const character = initializeCharacter("male");
+        updatePreview();
 
-        //  test level path
-        const result = calculateFFTStats({
-            startingLevel: character.level,
-            startingRawStats: character.rawStats,
-            displayJob: "squire",
-
-            includeLevelBreakdown: false,
-
-            levelPath: [
-                { job: "squire", fromLevel: 1, toLevel: 10 },
-                { job: "knight", fromLevel: 10, toLevel: 20 }
-            ]
+        document.getElementById("calculateButton").addEventListener("click", function() {
+            updatePreview();
         });
 
-        // Reslts get put into output section in html
-        document.getElementById("output").textContent =
-            JSON.stringify(result, null, 2);
+        document.getElementById("jobSelect").addEventListener("change", function() {
+            updatePreview();
+        });
 
-        console.log(result);
+        document.getElementById("targetLevel").addEventListener("input", function() {
+            updatePreview();
+        });
+    });
+});
+
+function updatePreview() {
+    const selectedJob = document.getElementById("jobSelect").value;
+    const targetLevel = Number(document.getElementById("targetLevel").value);
+
+    if (!selectedJob || !targetLevel || targetLevel < 2) {
+        return;
+    }
+
+    const result = calculateFFTStats({
+        startingLevel: testCharacter.level,
+        startingRawStats: testCharacter.rawStats,
+        displayJob: selectedJob,
+        includeLevelBreakdown: false,
+        levelPath: [
+            {
+                job: selectedJob,
+                fromLevel: 1,
+                toLevel: targetLevel
+            }
+        ]
     });
 
-});
+    document.getElementById("previewOutput").textContent =
+        JSON.stringify(result, null, 2);
+}
