@@ -30,7 +30,7 @@
       "movement": { "move": 3, "jump": 3, "classEvade": 5 },
       "constants": { "hp": 10, "mp": 10, "speed": 100, "pa": 50, "ma": 50 }
     },
-    "wlackMage": {
+    "blackMage": {
       "multipliers": { "hp": 75, "mp": 120, "speed": 100, "pa": 60, "ma": 150 },
       "movement": { "move": 3, "jump": 3, "classEvade": 5 },
       "constants": { "hp": 12, "mp": 9, "speed": 100, "pa": 60, "ma": 50 }
