@@ -24,16 +24,20 @@
 
 <h2>FFT Calculator Test</h2>
 
+
+<div id="segmentContainer">
+	<div class="level-segment">
+		<select class="job-select segment-job"></select>
+		<input class="from-level" type="number" min="1" max="99" value="1">
+		<input class="to-level" type="number" min="2" max="99" value="2">
+	</div>
+</div>
+
 <label for="jobSelect">Job</label>
 <select id="jobSelect" class="job-select"></select>
 
+<button id="addSegment">Add Job Path</button>
 <button id="calculate">Calculate</button>
-
-<label for="targetLevel">Level</label>
-<input id="targetLevel" type="number" min="2" max="99" value="2">
-</select>
-
-<button id="calculate">Test This Button Out</button>
 
 <h3>Preview</h3>
 <pre id="previewOutput"></pre>

@@ -228,7 +228,9 @@ document.addEventListener("DOMContentLoaded", function() {
     loadFFTData().then(function() {
         testCharacter = initializeCharacter("male");
 
-        updatePreview();
+        document.getElementById("addSegment").addEventListener("click", function() {
+            addSegmentRow();
+        });
 
         document.getElementById("calculate").addEventListener("click", function() {
             updatePreview();
@@ -236,34 +238,80 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function updatePreview() {
-    const selectedJob = document.getElementById("jobSelect").value;
-    const targetLevel = Number(document.getElementById("targetLevel").value);
+// This function will add additional job segments for a level range, attached to a button
+function addSegmentRow() {
+    const container = document.getElementById("segmentContainer");
 
-    if (!selectedJob || !targetLevel || targetLevel < 2) {
+    const segment = document.createElement("div");
+    segment.className = "level-segment";
+
+    segment.innerHTML =
+        '<select class="job-select segment-job"></select>' +
+        '<input class="from-level" type="number" min="1" max="99" value="1">' +
+        '<input class="to-level" type="number" min="2" max="99" value="2">';
+
+    container.appendChild(segment);
+
+    populateSingleJobDropdown(segment.querySelector(".segment-job"));
+}
+
+function buildLevelPathFromSegments() {
+    const segmentElements = document.querySelectorAll(".level-segment");
+    const levelPath = [];
+
+    for (const segmentElement of segmentElements) {
+        const job = segmentElement.querySelector(".segment-job").value;
+        const fromLevel = Number(segmentElement.querySelector(".from-level").value);
+        const toLevel = Number(segmentElement.querySelector(".to-level").value);
+
+        if (!job || !fromLevel || !toLevel) {
+            continue;
+        }
+
+        if (toLevel <= fromLevel) {
+            throw new Error("To Level must be higher than From Level.");
+        }
+
+        levelPath.push({
+            job: job,
+            fromLevel: fromLevel,
+            toLevel: toLevel
+        });
+    }
+
+    return levelPath;
+}
+
+function updatePreview() {
+
+    //Combines each segment into the full path sequentially.
+    const levelPath = buildLevelPathFromSegments();
+
+    if (levelPath.length === 0) {
+        document.getElementById("previewOutput").textContent = "No level path selected pal";
         return;
     }
 
+
+    // Ensures that the multiplier only applies to the final job selected. Multipliers do not affect C growths.
+    const finalSegment = levelPath[levelPath.length - 1];
+    const selectedDisplayJob = finalSegment.job;
+
+
+// CalculateFFTStats function for the test character.
     const result = calculateFFTStats({
         startingLevel: testCharacter.level,
         startingRawStats: testCharacter.rawStats,
-        displayJob: selectedJob,
+        displayJob: selectedDisplayJob,
         includeLevelBreakdown: false,
-        levelPath: [
-            {
-                job: selectedJob,
-                fromLevel: 1,
-                toLevel: targetLevel
-            }
-        ]
+        levelPath: levelPath
     });
-
+// Displaying only raw values based on the calculations
     document.getElementById("previewOutput").textContent =
-        document.getElementById("previewOutput").textContent =
-            "Level " + result.endingLevel + " " + formatJobName(selectedJob) + "\n\n" +
-            "HP: " + result.finalDisplayStats.hp + "\n" +
-            "MP: " + result.finalDisplayStats.mp + "\n" +
-            "Speed: " + result.finalDisplayStats.speed + "\n" +
-            "PA: " + result.finalDisplayStats.pa + "\n" +
-            "MA: " + result.finalDisplayStats.ma;
+        "Level " + result.endingLevel + " " + formatJobName(selectedDisplayJob) + "\n\n" +
+        "HP: " + result.finalDisplayStats.hp + "\n" +
+        "MP: " + result.finalDisplayStats.mp + "\n" +
+        "Speed: " + result.finalDisplayStats.speed + "\n" +
+        "PA: " + result.finalDisplayStats.pa + "\n" +
+        "MA: " + result.finalDisplayStats.ma;
 }
