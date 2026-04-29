@@ -167,6 +167,7 @@ function calculateFFTStats(input) {
     return {
         startingLevel: input.startingLevel,
         endingLevel: currentLevel,
+        displayJob: input.displayJob,
         finalRawStats: rawStats,
         finalDisplayStats: calculateDisplayStats(rawStats, displayJob),
         breakdown: input.includeLevelBreakdown ? breakdown : undefined
@@ -266,5 +267,11 @@ function updatePreview() {
     });
 
     document.getElementById("previewOutput").textContent =
-        JSON.stringify(result, null, 2);
+        document.getElementById("previewOutput").textContent =
+            "Level " + result.endingLevel + " " + formatJobName(selectedJob) + "\n\n" +
+            "HP: " + result.finalDisplayStats.hp + "\n" +
+            "MP: " + result.finalDisplayStats.mp + "\n" +
+            "Speed: " + result.finalDisplayStats.speed + "\n" +
+            "PA: " + result.finalDisplayStats.pa + "\n" +
+            "MA: " + result.finalDisplayStats.ma;
 }
