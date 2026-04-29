@@ -241,14 +241,31 @@ document.addEventListener("DOMContentLoaded", function() {
 // This function will add additional job segments for a level range, attached to a button
 function addSegmentRow() {
     const container = document.getElementById("segmentContainer");
+    const existingSegments = document.querySelectorAll(".level-segment")
+
+    let startingLevel = 1;
+
+    if (existingSegments.length > 0) {
+        const lastSegment = existingSegments[existingSegments.length - 1];
+        const lastToLevel = number(lastSegment.querySelector(".tolevel").value);
+
+        if (lastToLevel) {
+            startingLevel = lastToLevel;
+        }
+    }
 
     const segment = document.createElement("div");
     segment.className = "level-segment";
 
     segment.innerHTML =
+        '<label>Select Job</label>' +
         '<select class="job-select segment-job"></select>' +
-        '<input class="from-level" type="number" min="1" max="99" value="1">' +
-        '<input class="to-level" type="number" min="2" max="99" value="2">';
+
+        '<label>From Level</label>' +
+        '<input class="from-level" type="number" min="1" max="99" value="' + startingLevel + '" readonly>' +
+
+        '<label>To Level</label>' +
+        '<input class="to-level" type="number" min="' + (startingLevel + 1) + '" max="99" value="' + (startingLevel + 1) + '">';
 
     container.appendChild(segment);
 
@@ -272,7 +289,7 @@ function buildLevelPathFromSegments() {
             alert("To Level must be higher than From Level.");
             return [];
         }
-
+// adds to end of array
         levelPath.push({
             job: job,
             fromLevel: fromLevel,
@@ -405,7 +422,7 @@ function buildBaselinePathFromFinalJob(levelPath) {
     }
 
     if (firstFinalJobIndex === -1) {
-        throw new Error("Final job was not found in level path, but you'll probably never see this lol. If you do somethig has gone horribly wrong");
+        throw new Error("Final job was not found in level path, but you'll probably never see this lol. If you do something has gone horribly wrong");
     }
 
     const baselinePath = [];
