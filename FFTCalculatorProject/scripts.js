@@ -9,31 +9,51 @@ const STAT_KEYS = ["hp", "mp", "speed", "pa", "ma"]
 
 let fftData = null;
 
-fetch("./arithmetician.json")
-    .then(function(res) {
-        return res.json();
-    })
-    .then(function(data) {
-        console.log("It's working! Loaded:", data);
-    })
-    .catch(function(err) {
-        console.error("Didn't work. Didn't load:", err);
-    });
-    
+
+
 
 // Loading the arithmetician json. Calculation centric
+async function loadFFTData() {
+    const response = await fetch("./arithmetician.json");
 
-// Code to apply if the json is connecting. Testing 
-// async function loadFFTData() {*
- //   const response = await fetch("./arithmetician.json");
+    if (!response.ok) {
+        throw new Error("Failed to connect to the json file. Check for typos.")
+    }
 
-//    if(!response.ok) {
-//        throw new Error("Failed to connect to the json file. Check for typos.")
-//    }
+    fftData = await response.json();
 
-//    fftData = await response.json();
+// Automatically populate dropdown when data is loaded
+    
+    populateJobDropdowns();
 
-    // Automatically populate dropdown
-//    populateJobDropdowns();
+    return fftData;
+}
 
-//    return fftData; //*
+// Fills dropdowns with the job names based on arithmetician.json so UI doesn't confuse anybody via names
+
+function populateJobDroopdowns() {
+    const dropdowns = document.querySelectorAll(".job-select");
+
+    for (const dropdown of dropdowns) {
+        dropdown.innerHTML = "";
+
+        for (const jobKey of Object.keys(fftData.jobs)) {
+            const option = document.createElement("option");
+            option.value = jobKey;
+            option.textContent = formatJobName(jobKey);
+            dropdown.appendChild(option);
+        }
+    }
+}
+
+//testing connectivity, ignore
+// fetch("./arithmetician.json")
+//    .then(function(res) {
+//        return res.json();
+//    })
+//    .then(function(data) {
+//        console.log("It's working! Loaded:", data);
+//    })
+//   .catch(function(err) {
+//        console.error("Didn't work. Didn't load:", err);
+//    });
