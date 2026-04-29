@@ -247,7 +247,7 @@ function addSegmentRow() {
 
     if (existingSegments.length > 0) {
         const lastSegment = existingSegments[existingSegments.length - 1];
-        const lastToLevel = number(lastSegment.querySelector(".tolevel").value);
+        const lastToLevel = Number(lastSegment.querySelector(".to-level").value);
 
         if (lastToLevel) {
             startingLevel = lastToLevel;
