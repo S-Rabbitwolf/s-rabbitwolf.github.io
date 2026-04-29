@@ -1,0 +1,104 @@
+{
+  "jobs": {
+    "squire": {
+      "multipliers": { "hp": 100, "mp": 75, "speed": 100, "pa": 90, "ma": 80 },
+      "movement": { "move": 4, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 11, "mp": 15, "speed": 100, "pa": 60, "ma": 50 }
+    },
+    "chemist": {
+      "multipliers": { "hp": 80, "mp": 75, "speed": 100, "pa": 75, "ma": 80 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 12, "mp": 16, "speed": 100, "pa": 75, "ma": 50 }
+    },
+    "knight": {
+      "multipliers": { "hp": 120, "mp": 80, "speed": 100, "pa": 120, "ma": 80 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 10 },
+      "constants": { "hp": 10, "mp": 15, "speed": 100, "pa": 40, "ma": 50 }
+    },
+    "archer": {
+      "multipliers": { "hp": 100, "mp": 65, "speed": 100, "pa": 110, "ma": 80 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 10 },
+      "constants": { "hp": 11, "mp": 16, "speed": 100, "pa": 45, "ma": 50 }
+    },
+    "monk": {
+      "multipliers": { "hp": 135, "mp": 80, "speed": 110, "pa": 129, "ma": 80 },
+      "movement": { "move": 3, "jump": 4, "classEvade": 20 },
+      "constants": { "hp": 9, "mp": 13, "speed": 100, "pa": 48, "ma": 50 }
+    },
+    "whtMage": {
+      "multipliers": { "hp": 80, "mp": 120, "speed": 110, "pa": 90, "ma": 110 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 10, "mp": 10, "speed": 100, "pa": 50, "ma": 50 }
+    },
+    "blkMage": {
+      "multipliers": { "hp": 75, "mp": 120, "speed": 100, "pa": 60, "ma": 150 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 12, "mp": 9, "speed": 100, "pa": 60, "ma": 50 }
+    },
+    "timeMage": {
+      "multipliers": { "hp": 75, "mp": 120, "speed": 100, "pa": 50, "ma": 130 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 12, "mp": 10, "speed": 100, "pa": 65, "ma": 50 }
+    },
+    "summoner": {
+      "multipliers": { "hp": 70, "mp": 125, "speed": 90, "pa": 50, "ma": 125 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 13, "mp": 8, "speed": 100, "pa": 70, "ma": 50 }
+    },
+    "thief": {
+      "multipliers": { "hp": 90, "mp": 50, "speed": 110, "pa": 100, "ma": 60 },
+      "movement": { "move": 4, "jump": 4, "classEvade": 25 },
+      "constants": { "hp": 11, "mp": 16, "speed": 90, "pa": 50, "ma": 50 }
+    },
+    "orator": {
+      "multipliers": { "hp": 80, "mp": 70, "speed": 100, "pa": 75, "ma": 75 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 11, "mp": 18, "speed": 100, "pa": 55, "ma": 50 }
+    },
+    "mystic": {
+      "multipliers": { "hp": 75, "mp": 110, "speed": 100, "pa": 50, "ma": 120 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 12, "mp": 10, "speed": 100, "pa": 60, "ma": 50 }
+    },
+    "geomancer": {
+      "multipliers": { "hp": 110, "mp": 95, "speed": 100, "pa": 110, "ma": 105 },
+      "movement": { "move": 4, "jump": 3, "classEvade": 10 },
+      "constants": { "hp": 10, "mp": 11, "speed": 100, "pa": 45, "ma": 50 }
+    },
+    "dragoon": {
+      "multipliers": { "hp": 120, "mp": 50, "speed": 100, "pa": 120, "ma": 50 },
+      "movement": { "move": 3, "jump": 4, "classEvade": 15 },
+      "constants": { "hp": 10, "mp": 15, "speed": 100, "pa": 40, "ma": 50 }
+    },
+    "samurai": {
+      "multipliers": { "hp": 75, "mp": 75, "speed": 100, "pa": 128, "ma": 90 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 20 },
+      "constants": { "hp": 12, "mp": 14, "speed": 100, "pa": 45, "ma": 50 }
+    },
+    "ninja": {
+      "multipliers": { "hp": 70, "mp": 50, "speed": 120, "pa": 120, "ma": 75 },
+      "movement": { "move": 4, "jump": 4, "classEvade": 30 },
+      "constants": { "hp": 12, "mp": 13, "speed": 80, "pa": 43, "ma": 50 }
+    },
+    "arithmetician": {
+      "multipliers": { "hp": 65, "mp": 80, "speed": 50, "pa": 50, "ma": 70 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 14, "mp": 10, "speed": 100, "pa": 70, "ma": 50 }
+    },
+    "bard": {
+      "multipliers": { "hp": 55, "mp": 50, "speed": 100, "pa": 30, "ma": 115 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 20, "mp": 20, "speed": 100, "pa": 80, "ma": 50 }
+    },
+    "dancer": {
+      "multipliers": { "hp": 60, "mp": 50, "speed": 100, "pa": 110, "ma": 95 },
+      "movement": { "move": 3, "jump": 3, "classEvade": 5 },
+      "constants": { "hp": 20, "mp": 20, "speed": 100, "pa": 50, "ma": 50 }
+    },
+    "mime": {
+      "multipliers": { "hp": 140, "mp": 50, "speed": 120, "pa": 120, "ma": 115 },
+      "movement": { "move": 4, "jump": 4, "classEvade": 5 },
+      "constants": { "hp": 6, "mp": 30, "speed": 100, "pa": 35, "ma": 40 }
+    }
+  }
+}
