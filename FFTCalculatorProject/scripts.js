@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         updatePreview();
 
-        document.getElementById("calculateButton").addEventListener("click", function() {
+        document.getElementById("calculate").addEventListener("click", function() {
             updatePreview();
         });
 
