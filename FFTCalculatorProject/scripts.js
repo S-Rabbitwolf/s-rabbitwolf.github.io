@@ -247,7 +247,7 @@ function addSegmentRow() {
 
     if (existingSegments.length > 0) {
         const lastSegment = existingSegments[existingSegments.length - 1];
-        const lastToLevel = Number(lastSegment.querySelector(".to-level").value);
+        const lastToLevel = Number(lastSegment.querySelector(".tolevel").value);
 
         if (lastToLevel) {
             startingLevel = lastToLevel;
@@ -357,6 +357,11 @@ function updatePreview() {
     //build BASELINE path from the final job.
     const baselinePath = buildBaselinePathFromFinalJob(levelPath);
 
+
+    if (baselinePath === null) {
+        document.getElementById("comparisonOutput").textContent =
+        "Nothin' to compare."
+    }
     const baselineResult = calculateFFTStats({
         startingLevel: testCharacter.level,
         startingRawStats: testCharacter.rawStats,
@@ -411,6 +416,19 @@ function buildBaselinePathFromFinalJob(levelPath) {
     const finalSegment = levelPath[levelPath.length - 1];
     const finalJob = finalSegment.job;
     const endingLevel = finalSegment.toLevel;
+
+    let appearedEarlier = false;
+
+    for (let i = 0; i < levelPath.length - 1; i++) {
+        if (levelPath[i].job === finalJob) {
+            appearedEarlier = true;
+            break;
+        }
+    }
+
+    if (!appearedEarlier) {
+        return null;
+    }
 
     let firstFinalJobIndex = -1;
 
