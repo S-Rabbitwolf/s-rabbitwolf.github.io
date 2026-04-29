@@ -33,9 +33,9 @@ async function loadFFTData() {
 
 function populateJobDropdowns() {
     const dropdowns = document.querySelectorAll(".job-select");
-
+// Allows for multiple jobs to contribute to the same dropdown menu.
     for (const dropdown of dropdowns) {
-        dropdown.innerHTML = "";
+        populateSingleJobDropdown;
 
         for (const jobKey of Object.keys(fftData.jobs)) {
             const option = document.createElement("option");
@@ -280,6 +280,19 @@ function buildLevelPathFromSegments() {
     }
 
     return levelPath;
+}
+
+function populateSingleJobDropdown(dropdown) {
+    dropdown.innerHTML = "";
+
+    for (const jobKey of Object.keys(fftData.jobs)) {
+        const option = document.createElement("option");
+
+        option.value = jobKey;
+        option.textContent = formatJobName(jobKey);
+
+        dropdown.appendChild(option);
+    }
 }
 
 function updatePreview() {
