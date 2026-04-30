@@ -383,6 +383,29 @@ function updatePreview() {
         levelPath: levelPath
     });
 
+    const showBreakdown = document.getElementById("showBreakdown").checked;
+
+
+    // Displaying only final in-game values based on the calculations
+    document.getElementById("previewOutput").textContent =
+        "Level " + customResult.endingLevel + " " + formatJobName(selectedDisplayJob) + "\n\n" +
+        "HP: " + customResult.finalDisplayStats.hp + "\n" +
+        "MP: " + customResult.finalDisplayStats.mp + "\n" +
+        "Speed: " + customResult.finalDisplayStats.speed + "\n" +
+        "PA: " + customResult.finalDisplayStats.pa + "\n" +
+        "MA: " + customResult.finalDisplayStats.ma;
+// If the Breakdown option is selected, it'll show the actual raw stats behind the scenes used for calculation.
+        if (showBreakdown) {
+            document.getElementById("previewOutput").textContent +=
+                "\n\nRaw Internal Stats:\n" +
+                "Raw HP: " + customResult.finalRawStats.hp + "\n" +
+                "Raw MP: " + customResult.finalRawStats.mp + "\n" +
+                "Raw Speed: " + customResult.finalRawStats.speed + "\n" +
+                "Raw PA: " + customResult.finalRawStats.pa + "\n" +
+                "Raw MA: " + customResult.finalRawStats.ma;
+}
+
+
     //build BASELINE path from the final job.
     const baselinePath = buildBaselinePathFromFinalJob(levelPath);
 
@@ -405,16 +428,8 @@ function updatePreview() {
         baselineResult.finalDisplayStats
     );
 
+    
 
-
-// Displaying only final in-game values based on the calculations
-    document.getElementById("previewOutput").textContent =
-        "Level " + customResult.endingLevel + " " + formatJobName(selectedDisplayJob) + "\n\n" +
-        "HP: " + customResult.finalDisplayStats.hp + "\n" +
-        "MP: " + customResult.finalDisplayStats.mp + "\n" +
-        "Speed: " + customResult.finalDisplayStats.speed + "\n" +
-        "PA: " + customResult.finalDisplayStats.pa + "\n" +
-        "MA: " + customResult.finalDisplayStats.ma;
 
         // for displaying comparison between base path and custom path
 
