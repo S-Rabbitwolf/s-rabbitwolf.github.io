@@ -35,14 +35,8 @@ function populateJobDropdowns() {
     const dropdowns = document.querySelectorAll(".job-select");
 // Allows for multiple jobs to contribute to the same dropdown menu.
     for (const dropdown of dropdowns) {
-        populateSingleJobDropdown;
+        populateSingleJobDropdown(dropdown);
 
-        for (const jobKey of Object.keys(fftData.jobs)) {
-            const option = document.createElement("option");
-            option.value = jobKey;
-            option.textContent = formatJobName(jobKey);
-            dropdown.appendChild(option);
-        }
     }
 }
 
@@ -235,8 +229,15 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("calculate").addEventListener("click", function() {
             updatePreview();
         });
+
+        document.getElementById("addComparisonSegment").addEventListener("click", function() {
+            addComparisonSegmentRow();
+
+        });
     });
 });
+
+
 
 // This function will add additional job segments for a level range, attached to a button
 function addSegmentRow() {
@@ -247,7 +248,7 @@ function addSegmentRow() {
 
     if (existingSegments.length > 0) {
         const lastSegment = existingSegments[existingSegments.length - 1];
-        const lastToLevel = Number(lastSegment.querySelector(".tolevel").value);
+        const lastToLevel = Number(lastSegment.querySelector(".to-level").value);
 
         if (lastToLevel) {
             startingLevel = lastToLevel;
@@ -270,6 +271,27 @@ function addSegmentRow() {
     container.appendChild(segment);
 
     populateSingleJobDropdown(segment.querySelector(".segment-job"));
+}
+
+ function addComparisonSegmentRow() {
+    const container = document.getElementById("comparisonSegmentContainer");
+
+    const segment = document.createElement("div");
+    segment.className = "comparison-level-segment";
+
+    segment.innerHTML =
+        '<label>Select Job</label>' +
+        '<select class="job-select comparison-segment-job"></select>' +
+
+        '<label>From Level</label>' +
+        '<input class="comparison-from-level" type="number" min="1" max="99" value="1">' +
+
+        '<label>To Level</label>' +
+        '<input class="comparison-to-level" type="number" min="2" max="99" value="2">';
+
+    container.appendChild(segment);
+
+    populateSingleJobDropdown(segment.querySelector(".comparison-segment-job"));
 }
 
 function buildLevelPathFromSegments() {
@@ -326,7 +348,7 @@ function compareStats(customStats, baselineStats) {
 function formatDifference(value) {
     if (value > 0) return "+" + value;
     if (value < 0) return value;
-    return "+0";
+    return "+/-0";
 }
 
 function updatePreview() {
@@ -361,6 +383,7 @@ function updatePreview() {
     if (baselinePath === null) {
         document.getElementById("comparisonOutput").textContent =
         "Nothin' to compare."
+        return;
     }
     const baselineResult = calculateFFTStats({
         startingLevel: testCharacter.level,
@@ -374,6 +397,7 @@ function updatePreview() {
         customResult.finalDisplayStats,
         baselineResult.finalDisplayStats
     );
+
 
 
 // Displaying only final in-game values based on the calculations
@@ -410,6 +434,34 @@ function updatePreview() {
         "MA: " + formatDifference(statDifference.ma);
 }
 
+// Base level comparison scripting to enable mode selects. Thank god for modularity
+function buildComparisonPathFromSegments() {
+    const segmentElements = document.querySelectorAll(".comparison-level-segment");
+    const levelPath = [];
+
+    for (const segmentElement of segmentElements) {
+        const job = segmentElement.querySelector(".comparison-segment-job").value;
+        const fromLevel = Number(segmentElement.querySelector(".comparison-from-level").value);
+        const toLevel = Number(segmentElement.querySelector(".comparison-to-level").value);
+
+        if (!job || !fromLevel || !toLevel) {
+            continue;
+        }
+
+        if (toLevel <= fromLevel) {
+            alert("Comparison To Level must be higher than From Level.");
+            return [];
+        }
+
+        levelPath.push({
+            job: job,
+            fromLevel: fromLevel,
+            toLevel: toLevel
+        });
+    }
+
+    return levelPath;
+}
 
 // Baseline comparison. It compares stats on the final job if that individual had previously had that job before.
 function buildBaselinePathFromFinalJob(levelPath) {

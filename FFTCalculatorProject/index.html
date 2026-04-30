@@ -38,11 +38,38 @@
 	</div>
 </div>
 
+<label for="comparisonMode">Comparison Type</label>
+<select id="comparisonMode">
+    <option value="baseline">Baseline comparison</option>
+    <option value="custom">Custom path comparison</option>
+    <option value="none">No comparison</option>
+</select>
+
+
+<button id="addComparisonSegment">Add Comparison Job Path</button>
+
+
 <label for="jobSelect">Job</label>
 <select id="jobSelect" class="job-select"></select>
 
 <button id="addSegment">Add Job Path</button>
 <button id="calculate">Calculate</button>
+
+<h3>Comparison Path</h3>
+
+<div id="comparisonSegmentContainer">
+    <div class="comparison-level-segment">
+        <label>Select Job</label>
+        <select class="job-select comparison-segment-job"></select>
+
+        <label>From Level</label>
+        <input class="comparison-from-level" type="number" min="1" max="99" value="1">
+
+        <label>To Level</label>
+        <input class="comparison-to-level" type="number" min="2" max="99" value="2">
+    </div>
+</div>
+
 
 <h3>Preview</h3>
 <pre id="previewOutput"></pre>
