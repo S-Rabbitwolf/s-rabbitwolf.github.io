@@ -405,6 +405,13 @@ function updatePreview() {
                 "Raw MA: " + customResult.finalRawStats.ma;
 }
 
+    const comparisonMode = document.getElementById("comparisonMode").value;
+
+        if (comparisonMode === "none") {
+            document.getElementById("comparisonOutput").textContent = "";
+        return;
+}
+
 
     //build BASELINE path from the final job.
     const baselinePath = buildBaselinePathFromFinalJob(levelPath);
