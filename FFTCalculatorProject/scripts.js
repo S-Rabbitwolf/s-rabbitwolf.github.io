@@ -237,6 +237,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("comparisonMode").addEventListener("change", function() {
             updateComparisonUI();
         });
+        document.getElementById("resetCalculator").addEventListener("click", function() {
+            resetCalculator();
+        });
 
         updateComparisonUI();
     });
@@ -612,8 +615,7 @@ function resetCalculator() {
     const container = document.getElementById("segmentContainer");
     container.innerHTML = "";
 
-    addSegmentRow();
-
+    addSegmentRow()
     
     const comparisonContainer = document.getElementById("comparisonSegmentContainer");
     comparisonContainer.innerHTML = "";
