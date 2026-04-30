@@ -605,3 +605,23 @@ function updateComparisonUI() {
         button.style.display = "none";
     }
 }
+
+function resetCalculator() {
+
+    // Clears segments without needing to refresh the page and whatnot
+    const container = document.getElementById("segmentContainer");
+    container.innerHTML = "";
+
+    addSegmentRow();
+
+    
+    const comparisonContainer = document.getElementById("comparisonSegmentContainer");
+    comparisonContainer.innerHTML = "";
+
+    document.getElementById("previewOutput").textContent = "";
+
+    document.getElementById("comparisonOutput").textContent = "";
+
+    document.getElementById("comparisonMode").value = "none";
+    updateComparisonUI();
+}
