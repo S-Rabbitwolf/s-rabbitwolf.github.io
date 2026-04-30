@@ -232,10 +232,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById("addComparisonSegment").addEventListener("click", function() {
             addComparisonSegmentRow();
-
         });
+
+        document.getElementById("comparisonMode").addEventListener("change", function() {
+            updateComparisonUI();
+        });
+
+        updateComparisonUI();
     });
 });
+
+
 
 
 
@@ -516,4 +523,19 @@ function buildBaselinePathFromFinalJob(levelPath) {
     });
 
     return baselinePath;
+}
+
+function updateComparisonUI() {
+    const mode = document.getElementById("comparisonMode").value;
+
+    const container = document.getElementById("comparisonSegmentContainer");
+    const button = document.getElementById("addComparisonSegment");
+
+    if (mode === "custom") {
+        container.style.display = "block";
+        button.style.display = "inline-block";
+    } else {
+        container.style.display = "none";
+        button.style.display = "none";
+    }
 }
