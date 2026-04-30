@@ -270,7 +270,7 @@ function addSegmentRow() {
         '<select class="job-select segment-job"></select>' +
 
         '<label>From Level</label>' +
-        '<input class="from-level" type="number" min="1" max="99" value="' + startingLevel + '" readonly>' +
+        '<input class="from-level" type="number" min="1" max="99" value="' + startingLevel + '">' +
 
         '<label>To Level</label>' +
         '<input class="to-level" type="number" min="' + (startingLevel + 1) + '" max="99" value="' + (startingLevel + 1) + '">';
