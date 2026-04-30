@@ -79,4 +79,33 @@
 
 <pre id="comparisonOutput"></pre>
 
+<footer>
+    <p>
+        Each time a character levels up, their stats increase based on the job they are currently in.
+        Internally, stats are stored as large values. On level up, growth is calculated as:
+    </p>
+
+    <p>
+        Growth = floor(Raw Stat ÷ (Growth Constant + Level))
+    </p>
+
+    <p>
+        Lower growth constants result in better stat growth. As level increases, growth slows down.
+        Stats only increase when they reach the next whole number.
+    </p>
+
+    <p>
+        After growth is applied, internal values are converted into displayed stats using:
+    </p>
+
+    <p>
+        Displayed Stat = floor(Raw Stat × Job Multiplier ÷ 1638400)
+    </p>
+
+    <p>
+        The job used while leveling affects growth, and the final job affects displayed stats.
+        Different job paths will produce different results.
+    </p>
+</footer>
+
 </body>
