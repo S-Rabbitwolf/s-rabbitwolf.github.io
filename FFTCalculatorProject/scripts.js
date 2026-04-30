@@ -412,6 +412,50 @@ function updatePreview() {
         return;
 }
 
+    if (comparisonMode === "custom") {
+    const comparisonPath = buildComparisonPathFromSegments();
+
+    if (comparisonPath.length === 0) {
+        document.getElementById("comparisonOutput").textContent =
+            "No custom comparison for jobs selected.";
+        return;
+    }
+
+    const comparisonFinalSegment = comparisonPath[comparisonPath.length - 1];
+
+    const comparisonResult = calculateFFTStats({
+        startingLevel: testCharacter.level,
+        startingRawStats: testCharacter.rawStats,
+        displayJob: comparisonFinalSegment.job,
+        includeLevelBreakdown: false,
+        levelPath: comparisonPath
+    });
+
+    const statDifference = compareStats(
+        customResult.finalDisplayStats,
+        comparisonResult.finalDisplayStats
+    );
+
+    document.getElementById("comparisonOutput").textContent =
+        "Compared to custom path ending in " + formatJobName(comparisonFinalSegment.job) + "\n\n" +
+
+        "Comparison Stats:\n" +
+        "HP: " + comparisonResult.finalDisplayStats.hp + "\n" +
+        "MP: " + comparisonResult.finalDisplayStats.mp + "\n" +
+        "Speed: " + comparisonResult.finalDisplayStats.speed + "\n" +
+        "PA: " + comparisonResult.finalDisplayStats.pa + "\n" +
+        "MA: " + comparisonResult.finalDisplayStats.ma + "\n\n" +
+
+        "Difference:\n" +
+        "HP: " + formatDifference(statDifference.hp) + "\n" +
+        "MP: " + formatDifference(statDifference.mp) + "\n" +
+        "Speed: " + formatDifference(statDifference.speed) + "\n" +
+        "PA: " + formatDifference(statDifference.pa) + "\n" +
+        "MA: " + formatDifference(statDifference.ma);
+
+    return;
+    }
+
 
     //build BASELINE path from the final job.
     const baselinePath = buildBaselinePathFromFinalJob(levelPath);
