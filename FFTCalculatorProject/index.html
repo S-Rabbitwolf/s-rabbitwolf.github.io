@@ -1,120 +1,160 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	
-	<!-- meta tags and title -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FFT Arithmetician</title>
 
-	<!-- external and internal CSS -->
-	<link rel="stylesheet" href="styles.css" media="all">
-	<style>
-		/* in-file CSS here */
-	</style>
+    <!-- meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFT Arithmetician</title>
 
-	<!-- external and internal JavaScript -->
-	<script src="scripts.js" defer></script>
-	<script>
-		// in-page JavaScript here
-	</script>
+    <!-- external and internal CSS -->
+    <link rel="stylesheet" href="styles.css" media="all">
+    <style>
+        /* in-file CSS here */
+    </style>
+
+    <!-- external and internal JavaScript -->
+    <script src="scripts.js" defer></script>
+    <script>
+        // in-page JavaScript here
+    </script>
 
 </head>
+
 <body>
 
-<div id="BigShell">
+    <div id="BigShell">
 
-    <header id="HeaderPanel">
-        <h1>FFT Arithmetician</h1>
-        <p>Final Fantasy Tactics stat growth calculator</p>
-    </header>
+        <header id="HeaderPanel">
+            <h1>FFT Arithmetician</h1>
+            <p>Final Fantasy Tactics stat growth calculator</p>
+        </header>
 
-     <main id="calculatorPanel">
+        <main id="calculatorPanel">
 
-        <h2>Job Path Calculator</h2>
+            <h2>Job Path Calculator</h2>
 
-        <section id="mainPathPanel">
-            <h3>Main Path</h3>
+            <section id="mainPathPanel">
+                <h3>Main Path</h3>
 
-        <div id="segmentContainer">
-	        <div class="level-segment">
-		        <label>Select Job</label>
-		        <select class="job-select segment-job"></select>
-		
-		        <label>From Level</label>
-		        <input class="from-level" type="number" min="1" max="99" value="1">
+                <div id="segmentContainer">
+                    <div class="level-segment">
+                        <label>Select Job</label>
+                        <select class="job-select segment-job"></select>
 
-		        <label>To Level</label>
-		        <input class="to-level" type="number" min="2" max="99" value="2">
-	        </div>
-        </div>
+                        <label>From Level</label>
+                        <input class="from-level" type="number" min="1" max="99" value="1">
 
-<select id="comparisonMode">
-    <option value="none">No Comparison</option>
-    <option value="baseline">Baseline</option>
-    <option value="custom">Custom Path</option>
-</select>
+                        <label>To Level</label>
+                        <input class="to-level" type="number" min="2" max="99" value="2">
+                    </div>
+                </div>
 
-<label>Advanced Breakdown
-	<input id="showBreakdown" type="checkbox">
-</label>
+                <button id="addSegment">Add Job Path</button>
+
+            </section>
+
+            <section id="comparisonControlPanel">
+                <h3>Comparison Options</h3>
 
 
-<button id="addComparisonSegment">Add Comparison Job Path</button>
+                <select id="comparisonMode">
+                    <option value="none">No Comparison</option>
+                    <option value="baseline">Baseline</option>
+                    <option value="custom">Custom Path</option>
+                </select>
 
-<button id="addSegment">Add Job Path</button>
-<button id="calculate">Calculate</button>
-<button id="resetCalculator">Reset</button>
+                <label>Advanced Breakdown
+                    <input id="showBreakdown" type="checkbox">
+                </label>
+            </section>
 
-<h3>Comparison Path</h3>
+            <section id="pathpanel">
 
-<div id="comparisonSegmentContainer">
-    <div class="comparison-level-segment">
-        <label>Select Job</label>
-        <select class="job-select comparison-segment-job"></select>
 
-        <label>From Level</label>
-        <input class="comparison-from-level" type="number" min="1" max="99" value="1">
 
-        <label>To Level</label>
-        <input class="comparison-to-level" type="number" min="2" max="99" value="2">
+                <button id="addSegment">Add Job Path</button>
+
+                <h3>Comparison Path</h3>
+
+                <div id="comparisonSegmentContainer">
+                    <div class="comparison-level-segment">
+                        <label>Select Job</label>
+                        <select class="job-select comparison-segment-job"></select>
+
+                        <label>From Level</label>
+                        <input class="comparison-from-level" type="number" min="1" max="99" value="1">
+
+                        <label>To Level</label>
+                        <input class="comparison-to-level" type="number" min="2" max="99" value="2">
+                    </div>
+                </div>
+
+                <button id="addComparisonSegment">Add Comparison Job Path</button>
+            </section>
+
+            <section id="TheButtons">
+
+                <button id="calculate">Calculate</button>
+                <button id="resetCalculator">Reset</button>
+
+            </section>
+        </main>
+
+        <section id="results">
+
+            <h2>Results</h2>
+            <p>Upon Calculation, character statistics will appear here.</p>
+
+            <pre id="previewOutput"></pre>
+            <pre id="comparisonOutput"></pre>
+
+        </section>
+
+        <aside id="jobInfoPanel">
+
+            <h2>Job Info</h2>
+            <p>Job details, notes, and references will go here later.</p>
+
+        </aside>
+
+        <aside id="guidePanel">
+
+            <h2>Guides</h2>
+            <p>Guide links, videos, or build explanations will go here later.</p>
+            
+        </aside>
+
+        <footer id="explanation">
+            <p>
+                Each time a character levels up, their stats increase based on the job they are currently in.
+                Internally, stats are stored as large values. On level up, growth is calculated as:
+            </p>
+
+            <p>
+                Growth = floor(Raw Stat ÷ (Growth Constant + Level))
+            </p>
+
+            <p>
+                Lower growth constants result in better stat growth. As level increases, growth slows down.
+                Stats only increase when they reach the next whole number.
+            </p>
+
+            <p>
+                After growth is applied, internal values are converted into displayed stats using:
+            </p>
+
+            <p>
+                Displayed Stat = floor(Raw Stat × Job Multiplier ÷ 1638400)
+            </p>
+
+            <p>
+                The job used while leveling affects growth, and the final job affects displayed stats.
+                Different job paths will produce different results.
+                Go ahead and mess with the jobs and values above however you like. Before long, the visual
+                component to this website will be worked on.
+            </p>
+        </footer>
     </div>
-</div>
-
-
-<h3>Upon Calculation, character statistics will appear here.</h3>
-<pre id="previewOutput"></pre>
-
-<pre id="comparisonOutput"></pre>
-
-<footer>
-    <p>
-        Each time a character levels up, their stats increase based on the job they are currently in.
-        Internally, stats are stored as large values. On level up, growth is calculated as:
-    </p>
-
-    <p>
-        Growth = floor(Raw Stat ÷ (Growth Constant + Level))
-    </p>
-
-    <p>
-        Lower growth constants result in better stat growth. As level increases, growth slows down.
-        Stats only increase when they reach the next whole number.
-    </p>
-
-    <p>
-        After growth is applied, internal values are converted into displayed stats using:
-    </p>
-
-    <p>
-        Displayed Stat = floor(Raw Stat × Job Multiplier ÷ 1638400)
-    </p>
-
-    <p>
-        The job used while leveling affects growth, and the final job affects displayed stats.
-        Different job paths will produce different results.
-		Go ahead and mess with the jobs and values above however you like. Before long, the visual component to this website will be worked on.
-    </p>
-</footer>
-</div>
 </body>
