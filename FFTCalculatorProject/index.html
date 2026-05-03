@@ -22,21 +22,32 @@
 </head>
 <body>
 
-<h2>FFT Calculator Test</h2>
+<div id="BigShell">
 
+    <header id="HeaderPanel">
+        <h1>FFT Arithmetician</h1>
+        <p>Final Fantasy Tactics stat growth calculator</p>
+    </header>
 
-<div id="segmentContainer">
-	<div class="level-segment">
-		<label>Select Job</label>
-		<select class="job-select segment-job"></select>
+     <main id="calculatorPanel">
+
+        <h2>Job Path Calculator</h2>
+
+        <section id="mainPathPanel">
+            <h3>Main Path</h3>
+
+        <div id="segmentContainer">
+	        <div class="level-segment">
+		        <label>Select Job</label>
+		        <select class="job-select segment-job"></select>
 		
-		<label>From Level</label>
-		<input class="from-level" type="number" min="1" max="99" value="1">
+		        <label>From Level</label>
+		        <input class="from-level" type="number" min="1" max="99" value="1">
 
-		<label>To Level</label>
-		<input class="to-level" type="number" min="2" max="99" value="2">
-	</div>
-</div>
+		        <label>To Level</label>
+		        <input class="to-level" type="number" min="2" max="99" value="2">
+	        </div>
+        </div>
 
 <select id="comparisonMode">
     <option value="none">No Comparison</option>
@@ -105,5 +116,5 @@
 		Go ahead and mess with the jobs and values above however you like. Before long, the visual component to this website will be worked on.
     </p>
 </footer>
-
+</div>
 </body>
