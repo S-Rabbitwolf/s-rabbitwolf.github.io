@@ -285,19 +285,31 @@ function addSegmentRow() {
 
  function addComparisonSegmentRow() {
     const container = document.getElementById("comparisonSegmentContainer");
+    const existingSegments = document.querySelectorAll(".comparison-level-segment");
 
     const segment = document.createElement("div");
     segment.className = "comparison-level-segment";
+
+    let startingLevel = 1;
+
+    if (existingSegments.length > 0) {
+        const lastSegment = existingSegments[existingSegments.length - 1];
+        const lastToLevel = Number(lastSegment.querySelector(".comparison-to-level").value);
+
+        if (lastToLevel) {
+            startingLevel = lastToLevel;
+        }
+    }
 
     segment.innerHTML =
         '<label>Select Job</label>' +
         '<select class="job-select comparison-segment-job"></select>' +
 
         '<label>From Level</label>' +
-        '<input class="comparison-from-level" type="number" min="1" max="99" value="1">' +
+        '<input class="comparison-from-level" type="number" min="1" max="99" value="' + startingLevel + '">' +
 
         '<label>To Level</label>' +
-        '<input class="comparison-to-level" type="number" min="2" max="99" value="2">';
+        '<input class="comparison-to-level" type="number" min="' + (startingLevel + 1) + '" max="99" value="' + (startingLevel + 1) + '">';
 
     container.appendChild(segment);
 
