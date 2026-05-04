@@ -1,0 +1,38 @@
+#BigShell {
+    display: grid;
+    grid-template-columns: 280px 1fr 360px;
+    grid-template-rows: auto 1fr auto;
+    gap: 24px;
+
+    grid-template-areas:
+        "jobinfo header guide"
+        "jobinfo calculator guide"
+        "jobinfo results guide"
+        "explanation explanation explanation";
+}
+
+#HeaderPanel { grid-area: header; }
+#calculatorPanel { grid-area: calculator; }
+#results { grid-area: results; }
+#jobInfoPanel { grid-area: jobinfo; }
+#guidePanel { grid-area: guide; }
+#explanation { grid-area: explanation; }
+
+
+#HeaderPanel, #calculatorPanel, #results, #jobInfoPanel, #guidePanel, #explanation {
+    border: 2px solid #444;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+#HeaderPanel { background: rgba(255, 0, 0, 0.1); }
+
+#calculatorPanel { background: rgba(0, 255, 0, 0.1); }
+
+#results { background: rgba(0, 0, 255, 0.1); }
+
+#jobInfoPanel { background: rgba(255, 255, 0, 0.1); }
+
+#guidePanel { background: rgba(255, 0, 255, 0.1); }
+
+#explanation { background: rgba(0, 255, 255, 0.1); }
