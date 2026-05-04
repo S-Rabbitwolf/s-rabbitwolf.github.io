@@ -1,3 +1,14 @@
+body {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(58, 52, 40, 1) 0%,
+            rgba(42, 37, 29, 1) 40%,
+            rgba(20, 17, 13, 1) 70%,
+            rgba(0, 0, 0, 1) 100%
+        );
+}
+
 #BigShell {
     display: grid;
     grid-template-columns: 280px 1fr 360px;
@@ -22,17 +33,24 @@
 #HeaderPanel, #calculatorPanel, #results, #jobInfoPanel, #guidePanel, #explanation {
     border: 2px solid #444;
     background: rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 
-#HeaderPanel { background: rgba(255, 0, 0, 0.1); }
+#HeaderPanel { background: rgba(255, 0, 0, 0.1);
+border: dotted rgba(255, 0, 0, 0.3) }
 
-#calculatorPanel { background: rgba(0, 255, 0, 0.1); }
+#calculatorPanel { background: rgba(0, 255, 0, 0.1);
+border: dotted rgba(0, 255, 0, 0.3); }
 
-#results { background: rgba(0, 0, 255, 0.1); }
+#results { background: rgba(0, 0, 255, 0.1);
+border: dotted rgba(255, 255, 0, 0.3) }
 
-#jobInfoPanel { background: rgba(255, 255, 0, 0.1); }
+#jobInfoPanel { background: rgba(255, 255, 0, 0.1);
+border: dotted rgba(255, 127, 0, 0.3) }
 
-#guidePanel { background: rgba(255, 0, 255, 0.1); }
+#guidePanel { background: rgba(255, 0, 255, 0.1);
+border: dotted rgba(255, 255, 166, 0.3) }
 
-#explanation { background: rgba(0, 255, 255, 0.1); }
+#explanation { background: rgba(0, 255, 255, 0.1);
+border: dotted rgba(255, 0, 255, 0.3) }
