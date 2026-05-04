@@ -37,20 +37,20 @@ body {
 }
 
 
-#HeaderPanel { background: rgba(255, 0, 0, 0.1);
-border: dotted rgba(255, 0, 0, 0.3) }
+#HeaderPanel { background: rgba(255, 0, 0, 0.5);
+border: dotted rgba(255, 0, 0, 0.7) }
 
-#calculatorPanel { background: rgba(0, 255, 0, 0.1);
-border: dotted rgba(0, 255, 0, 0.3); }
+#calculatorPanel { background: rgba(0, 255, 0, 0.5);
+border: dotted rgba(0, 255, 0, 0.7); }
 
-#results { background: rgba(0, 0, 255, 0.1);
-border: dotted rgba(255, 255, 0, 0.3) }
+#results { background: rgba(0, 0, 255, 0.5);
+border: dotted rgba(255, 255, 0, 0.7) }
 
-#jobInfoPanel { background: rgba(255, 255, 0, 0.1);
-border: dotted rgba(255, 127, 0, 0.3) }
+#jobInfoPanel { background: rgba(255, 255, 0, 0.5);
+border: dotted rgba(255, 127, 0, 0.7) }
 
-#guidePanel { background: rgba(255, 0, 255, 0.1);
-border: dotted rgba(255, 255, 166, 0.3) }
+#guidePanel { background: rgba(255, 0, 255, 0.5);
+border: dotted rgba(255, 255, 166, 0.7) }
 
-#explanation { background: rgba(0, 255, 255, 0.1);
-border: dotted rgba(255, 0, 255, 0.3) }
+#explanation { background: rgba(0, 255, 255, 0.5);
+border: dotted rgba(255, 0, 255, 0.7) }
