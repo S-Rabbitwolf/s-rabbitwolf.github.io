@@ -400,7 +400,6 @@ function updateJobInfoPanel() {
         '<p>' + details.description + '</p>' +
         '<h4>Pros</h4>' +
         '<ul>' + details.pros.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
-
         '<h4>Cons</h4>' +
         '<ul>' + details.cons.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>' +
         '<h4>Equipment</h4>' +

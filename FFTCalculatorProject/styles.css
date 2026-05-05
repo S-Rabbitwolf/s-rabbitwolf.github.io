@@ -6,7 +6,7 @@
 body {
     font-family: "Altima", serif;
     font-size: clamp(16px, 1.6vw, 20px);
-    line-height: 1.4;
+    line-height: 1.2;
     background:
         radial-gradient(circle at center,
             rgba(58, 52, 40, 1) 0%,
