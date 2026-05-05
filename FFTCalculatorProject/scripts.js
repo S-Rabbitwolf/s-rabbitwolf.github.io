@@ -8,22 +8,28 @@ const DIVISOR = 1638400
 const STAT_KEYS = ["hp", "mp", "speed", "pa", "ma"]
 
 let fftData = null;
-
+let jobDetails = null;
 
 
 
 // Loading the arithmetician json. Calculation centric
 async function loadFFTData() {
     const response = await fetch("./arithmetician.json");
+    const detailsResponse = await fetch("./jobDetails.json");
 
     if (!response.ok) {
         throw new Error("Failed to connect to the json file. Check for typos.")
     }
 
-    fftData = await response.json();
+    if (!detailsResponse.ok) {
+        throw new Error("Failed to load jobDetails.json. Check for typos and whatnot");
+    }
 
-// Automatically populate dropdown when data is loaded
-    
+    fftData = await response.json();
+    jobDetails = await detailsResponse.json();
+
+    // Automatically populate dropdown when data is loaded
+
     populateJobDropdowns();
 
     return fftData;
@@ -33,22 +39,22 @@ async function loadFFTData() {
 
 function populateJobDropdowns() {
     const dropdowns = document.querySelectorAll(".job-select");
-// Allows for multiple jobs to contribute to the same dropdown menu.
+    // Allows for multiple jobs to contribute to the same dropdown menu.
     for (const dropdown of dropdowns) {
         populateSingleJobDropdown(dropdown);
 
     }
 }
 
- // As the DOM will be adjusted based on the JSon's data, automatically applying proper spacing and capitalization to prevent manual class/entity input to the DOM is necessary. 
- // For example, this will convert the entry of "timeMage" into "Time Mage".
+// As the DOM will be adjusted based on the JSon's data, automatically applying proper spacing and capitalization to prevent manual class/entity input to the DOM is necessary. 
+// For example, this will convert the entry of "timeMage" into "Time Mage".
 
- function formatJobName(jobKey) {
+function formatJobName(jobKey) {
     return jobKey
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, function(char) {
-        return char.toUpperCase();
- });
+        .replace(/([A-Z])/g, " $1")
+        .replace(/^./, function (char) {
+            return char.toUpperCase();
+        });
 }
 
 // For HP and MP, the assigned integer for a character upon creation is randomized with a min/max value. This will refer to the minimum and maximum values in the hp and mp fields of a given job.
@@ -71,7 +77,7 @@ function initializeCharacter(sex) {
         }
     };
 
-    if (sex ==="female") {
+    if (sex === "female") {
         return {
             sex: "female",
             level: 1,
@@ -125,7 +131,7 @@ function calculateFFTStats(input) {
         for (let level = segment.fromLevel; level < segment.toLevel; level++) {
 
             for (const stat of STAT_KEYS) {
-                
+
                 const constant = job.constants[stat];
 
                 /* The formula for FFT growth on level up is as follows:
@@ -169,38 +175,38 @@ function calculateFFTStats(input) {
 }
 
 
-    // The raw stats are then converted into displayed stats with the job's inherent modifier as discussed previously.
+// The raw stats are then converted into displayed stats with the job's inherent modifier as discussed previously.
 
-    function calculateDisplayStats(rawStats, job) {
+function calculateDisplayStats(rawStats, job) {
 
-        const caps = {
-            hp: 999,
-            mp: 999,
-            speed: 99,
-            pa: 99,
-            ma: 99
-        };
+    const caps = {
+        hp: 999,
+        mp: 999,
+        speed: 99,
+        pa: 99,
+        ma: 99
+    };
 
-        const output = {};
-        
-        for (const stat of STAT_KEYS) {
+    const output = {};
 
-            const multiplier = job.multipliers[stat];
+    for (const stat of STAT_KEYS) {
 
-            const multiplied = rawStats[stat] * multiplier;
+        const multiplier = job.multipliers[stat];
 
-            let value = Math.floor(multiplied / DIVISOR);
+        const multiplied = rawStats[stat] * multiplier;
 
-            if (value < 1) value = 1;
-            if (value > caps[stat]) value = caps[stat];
+        let value = Math.floor(multiplied / DIVISOR);
 
-            output[stat] = value;
-        }
+        if (value < 1) value = 1;
+        if (value > caps[stat]) value = caps[stat];
 
-        return output;
+        output[stat] = value;
     }
 
-    //loadFFTData();
+    return output;
+}
+
+//loadFFTData();
 
 //testing connectivity, ignore
 // fetch("./arithmetician.json")
@@ -218,28 +224,34 @@ function calculateFFTStats(input) {
 
 let testCharacter = null;
 
-document.addEventListener("DOMContentLoaded", function() {
-    loadFFTData().then(function() {
+document.addEventListener("DOMContentLoaded", function () {
+    loadFFTData().then(function () {
         testCharacter = initializeCharacter("male");
 
-        document.getElementById("addSegment").addEventListener("click", function() {
+        document.getElementById("addSegment").addEventListener("click", function () {
             addSegmentRow();
         });
 
-        document.getElementById("calculate").addEventListener("click", function() {
+        document.getElementById("calculate").addEventListener("click", function () {
             updatePreview();
         });
 
-        document.getElementById("addComparisonSegment").addEventListener("click", function() {
+        document.getElementById("addComparisonSegment").addEventListener("click", function () {
             addComparisonSegmentRow();
         });
 
-        document.getElementById("comparisonMode").addEventListener("change", function() {
+        document.getElementById("comparisonMode").addEventListener("change", function () {
             updateComparisonUI();
         });
-        document.getElementById("resetCalculator").addEventListener("click", function() {
+        document.getElementById("resetCalculator").addEventListener("click", function () {
             resetCalculator();
         });
+
+        document.getElementById("jobInfoSelect").addEventListener("change", function () {
+            updateJobInfoPanel();
+        });
+
+        updateJobInfoPanel();
 
         updateComparisonUI();
     });
@@ -283,7 +295,7 @@ function addSegmentRow() {
     populateSingleJobDropdown(segment.querySelector(".segment-job"));
 }
 
- function addComparisonSegmentRow() {
+function addComparisonSegmentRow() {
     const container = document.getElementById("comparisonSegmentContainer");
     const existingSegments = document.querySelectorAll(".comparison-level-segment");
 
@@ -333,7 +345,7 @@ function buildLevelPathFromSegments() {
             alert("To Level must be higher than From Level.");
             return [];
         }
-// adds to end of array
+        // adds to end of array
         levelPath.push({
             job: job,
             fromLevel: fromLevel,
@@ -356,6 +368,33 @@ function populateSingleJobDropdown(dropdown) {
         dropdown.appendChild(option);
     }
 }
+
+function updateJobInfoPanel() {
+    const selectedJob = document.getElementById("jobInfoSelect").value;
+    const job = fftData.jobs[selectedJob];
+    const details = jobDetails[selectedJob];
+
+    document.getElementById("jobInfoContent").innerHTML =
+        '<h3>' + formatJobName(selectedJob) + '</h3>' +
+
+        '<p>' + details.description + '</p>' +
+
+        '<h4>Growth Constants</h4>' +
+        '<p>HP: ' + job.constants.hp + '</p>' +
+        '<p>MP: ' + job.constants.mp + '</p>' +
+        '<p>Speed: ' + job.constants.speed + '</p>' +
+        '<p>PA: ' + job.constants.pa + '</p>' +
+        '<p>MA: ' + job.constants.ma + '</p>' +
+
+        '<h4>Multipliers</h4>' +
+        '<p>HP: ' + job.multipliers.hp + '</p>' +
+        '<p>MP: ' + job.multipliers.mp + '</p>' +
+        '<p>Speed: ' + job.multipliers.speed + '</p>' +
+        '<p>PA: ' + job.multipliers.pa + '</p>' +
+        '<p>MA: ' + job.multipliers.ma + '</p>';
+}
+
+
 // For comparing stats in numerical fashion. 
 function compareStats(customStats, baselineStats) {
     return {
@@ -389,7 +428,7 @@ function updatePreview() {
     const selectedDisplayJob = finalSegment.job;
 
 
-// CalculateFFTStats function for the test character.
+    // CalculateFFTStats function for the test character.
     const customResult = calculateFFTStats({
         startingLevel: testCharacter.level,
         startingRawStats: testCharacter.rawStats,
@@ -409,66 +448,66 @@ function updatePreview() {
         "Speed: " + customResult.finalDisplayStats.speed + "\n" +
         "PA: " + customResult.finalDisplayStats.pa + "\n" +
         "MA: " + customResult.finalDisplayStats.ma;
-// If the Breakdown option is selected, it'll show the actual raw stats behind the scenes used for calculation.
-        if (showBreakdown) {
-            document.getElementById("previewOutput").textContent +=
-                "\n\nRaw Internal Stats:\n" +
-                "Raw HP: " + customResult.finalRawStats.hp + "\n" +
-                "Raw MP: " + customResult.finalRawStats.mp + "\n" +
-                "Raw Speed: " + customResult.finalRawStats.speed + "\n" +
-                "Raw PA: " + customResult.finalRawStats.pa + "\n" +
-                "Raw MA: " + customResult.finalRawStats.ma;
-}
+    // If the Breakdown option is selected, it'll show the actual raw stats behind the scenes used for calculation.
+    if (showBreakdown) {
+        document.getElementById("previewOutput").textContent +=
+            "\n\nRaw Internal Stats:\n" +
+            "Raw HP: " + customResult.finalRawStats.hp + "\n" +
+            "Raw MP: " + customResult.finalRawStats.mp + "\n" +
+            "Raw Speed: " + customResult.finalRawStats.speed + "\n" +
+            "Raw PA: " + customResult.finalRawStats.pa + "\n" +
+            "Raw MA: " + customResult.finalRawStats.ma;
+    }
 
     const comparisonMode = document.getElementById("comparisonMode").value;
 
-        if (comparisonMode === "none") {
-            document.getElementById("comparisonOutput").textContent = "";
-        return;
-}
-
-    if (comparisonMode === "custom") {
-    const comparisonPath = buildComparisonPathFromSegments();
-
-    if (comparisonPath.length === 0) {
-        document.getElementById("comparisonOutput").textContent =
-            "No custom comparison for jobs selected.";
+    if (comparisonMode === "none") {
+        document.getElementById("comparisonOutput").textContent = "";
         return;
     }
 
-    const comparisonFinalSegment = comparisonPath[comparisonPath.length - 1];
+    if (comparisonMode === "custom") {
+        const comparisonPath = buildComparisonPathFromSegments();
 
-    const comparisonResult = calculateFFTStats({
-        startingLevel: testCharacter.level,
-        startingRawStats: testCharacter.rawStats,
-        displayJob: comparisonFinalSegment.job,
-        includeLevelBreakdown: false,
-        levelPath: comparisonPath
-    });
+        if (comparisonPath.length === 0) {
+            document.getElementById("comparisonOutput").textContent =
+                "No custom comparison for jobs selected.";
+            return;
+        }
 
-    const statDifference = compareStats(
-        customResult.finalDisplayStats,
-        comparisonResult.finalDisplayStats
-    );
+        const comparisonFinalSegment = comparisonPath[comparisonPath.length - 1];
 
-    document.getElementById("comparisonOutput").textContent =
-        "Compared to custom path ending in " + formatJobName(comparisonFinalSegment.job) + "\n\n" +
+        const comparisonResult = calculateFFTStats({
+            startingLevel: testCharacter.level,
+            startingRawStats: testCharacter.rawStats,
+            displayJob: comparisonFinalSegment.job,
+            includeLevelBreakdown: false,
+            levelPath: comparisonPath
+        });
 
-        "Comparison Stats:\n" +
-        "HP: " + comparisonResult.finalDisplayStats.hp + "\n" +
-        "MP: " + comparisonResult.finalDisplayStats.mp + "\n" +
-        "Speed: " + comparisonResult.finalDisplayStats.speed + "\n" +
-        "PA: " + comparisonResult.finalDisplayStats.pa + "\n" +
-        "MA: " + comparisonResult.finalDisplayStats.ma + "\n\n" +
+        const statDifference = compareStats(
+            customResult.finalDisplayStats,
+            comparisonResult.finalDisplayStats
+        );
 
-        "Difference:\n" +
-        "HP: " + formatDifference(statDifference.hp) + "\n" +
-        "MP: " + formatDifference(statDifference.mp) + "\n" +
-        "Speed: " + formatDifference(statDifference.speed) + "\n" +
-        "PA: " + formatDifference(statDifference.pa) + "\n" +
-        "MA: " + formatDifference(statDifference.ma);
+        document.getElementById("comparisonOutput").textContent =
+            "Compared to custom path ending in " + formatJobName(comparisonFinalSegment.job) + "\n\n" +
 
-    return;
+            "Comparison Stats:\n" +
+            "HP: " + comparisonResult.finalDisplayStats.hp + "\n" +
+            "MP: " + comparisonResult.finalDisplayStats.mp + "\n" +
+            "Speed: " + comparisonResult.finalDisplayStats.speed + "\n" +
+            "PA: " + comparisonResult.finalDisplayStats.pa + "\n" +
+            "MA: " + comparisonResult.finalDisplayStats.ma + "\n\n" +
+
+            "Difference:\n" +
+            "HP: " + formatDifference(statDifference.hp) + "\n" +
+            "MP: " + formatDifference(statDifference.mp) + "\n" +
+            "Speed: " + formatDifference(statDifference.speed) + "\n" +
+            "PA: " + formatDifference(statDifference.pa) + "\n" +
+            "MA: " + formatDifference(statDifference.ma);
+
+        return;
     }
 
 
@@ -478,7 +517,7 @@ function updatePreview() {
 
     if (baselinePath === null) {
         document.getElementById("comparisonOutput").textContent =
-        "Nothin' to compare."
+            "Nothin' to compare."
         return;
     }
     const baselineResult = calculateFFTStats({
@@ -494,10 +533,10 @@ function updatePreview() {
         baselineResult.finalDisplayStats
     );
 
-    
 
 
-        // for displaying comparison between base path and custom path
+
+    // for displaying comparison between base path and custom path
 
     const baselineStartLevel = baselinePath[baselinePath.length - 1].fromLevel;
     const baselineEndLevel = baselinePath[baselinePath.length - 1].toLevel;
@@ -585,8 +624,8 @@ function buildBaselinePathFromFinalJob(levelPath) {
 
     const baselinePath = [];
 
-    
-     // Keep all segments before the first time the final job appears. This preserves the character's path before committing to that job.
+
+    // Keep all segments before the first time the final job appears. This preserves the character's path before committing to that job.
 
     for (let i = 0; i < firstFinalJobIndex; i++) {
         baselinePath.push({
@@ -596,7 +635,7 @@ function buildBaselinePathFromFinalJob(levelPath) {
         });
     }
 
-     // From the first time the final job appears, compared against staying in that final job until the end.
+    // From the first time the final job appears, compared against staying in that final job until the end.
     baselinePath.push({
         job: finalJob,
         fromLevel: levelPath[firstFinalJobIndex].fromLevel,
@@ -628,7 +667,7 @@ function resetCalculator() {
     container.innerHTML = "";
 
     addSegmentRow()
-    
+
     const comparisonContainer = document.getElementById("comparisonSegmentContainer");
     comparisonContainer.innerHTML = "";
 

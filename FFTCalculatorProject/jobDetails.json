@@ -1,0 +1,499 @@
+{
+    "squire": {
+        "description": "The most basic of all jobs, and one of two jobs a unit can initially select when created. While its stats are below average in almost every respect, it has a surprising amount of utility in its abilities, especially with Dash and Accumulate. It also has a base Move of 4, allowing it to traverse the map quickly.\n\nStaying as a Squire is generally not recommended, but it can still be quite powerful with the right skills and equipment.",
+        "pros": [
+            "High Move",
+            "Accumulate for both JP/EXP gain and strong damage scaling",
+            "Dash never misses",
+            "Move +1 is a cheap and excellent early-game mobility skill (200 JP)"
+        ],
+        "cons": [
+            "Low HP pool and growth",
+            "Lower PA/MA modifiers than most jobs",
+            "Limited utility compared to later jobs",
+            "Access to axes, and axes are terrible",
+            "No offhand capabilities without external support"
+        ],
+        "weapons": [
+            "Knives",
+            "Swords",
+            "Axes"
+        ],
+        "armor": [
+            "Clothing",
+            "Light Armor"
+        ],
+        "maleSprite": "./sprites/squire-male.png",
+        "femaleSprite": "./sprites/squire-female.png"
+    },
+    "chemist": {
+        "description": "One of two jobs a unit can initially select when created, and secretly one of the stronger late-game powerhouses if developed properly. Early game, it offers incredible utility but struggles with survivability without Auto-Potion. In the late game, high-Brave Chemists can become extremely difficult to kill if you can afford a steady supply of X-Potions. Development as a Chemist is also required to obtain some of the best items in the game via Move-Find Item. It also has access to guns.\n\nA Chemist will often branch into other jobs for development, but it can absolutely remain in a late-game squad without regret.",
+        "pros": [
+            "Access to guns",
+            "Auto-Potion is one of the best survivability tools in the game",
+            "Item throwing is extremely versatile, from healing to revival",
+            "Excellent for early and mid-game JP development"
+        ],
+        "cons": [
+            "Weak offensive output before acquiring guns",
+            "Very low HP multiplier and growth",
+            "Item usage can be expensive in the early and mid-game"
+        ],
+        "weapons": [
+            "Knives",
+            "Guns"
+        ],
+        "armor": [
+            "Clothing"
+        ],
+        "maleSprite": "./sprites/chemist-male.png",
+        "femaleSprite": "./sprites/chemist-female.png"
+    },
+    "knight": {
+        "description": "Physical powerhouses capable of branching into magical utility thanks to their ability to equip robes. Knights function as classic tanks, boasting high HP, strong physical attack, and excellent defensive options with shields. They can break equipment and reduce enemy stats with their abilities, though in practice, stat reduction is often more useful if you plan on stealing gear.\n\nThey suffer from poor mobility and struggle against magical threats early on. However, with access to Knight Swords and development in magic-oriented jobs, they can become flexible hybrid units, even if other jobs may ultimately offer stronger endgame utility.",
+        "pros": [
+            "High physical damage, especially in the mid-game",
+            "Strong durability at all stages of the game",
+            "Access to robes enables hybrid builds",
+            "Knight Swords are extremely powerful in the late game"
+        ],
+        "cons": [
+            "Low mobility",
+            "Parry is a weak reaction ability",
+            "Knight Swords are unavailable for much of the game",
+            "Other jobs can surpass their offensive and defensive utility"
+        ],
+        "weapons": [
+            "Swords",
+            "Knight Swords",
+            "Shields"
+        ],
+        "armor": [
+            "Heavy Armor",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/knight-male.png",
+        "femaleSprite": "./sprites/knight-female.png"
+    },
+    "archer": {
+        "description": "Exceptionally talented at dealing damage from far away using bows. While its stats leave something to be desired, an Archer positioned on high ground can often take uncontested shots at enemies across the map. Access to Speed Save and Concentrate gives it valuable tools that remain useful across many jobs, though its effectiveness is heavily dependent on map layout. Some maps make Archer feel excellent, while others make it an exceptionally rough experience.",
+        "pros": [
+            "Only job with access to bows",
+            "Can deal significant damage from high vantage points",
+            "Speed Save and Concentrate are useful on many jobs",
+            "Can trivialize much of the early game with good positioning"
+        ],
+        "cons": [
+            "Lower HP pool than many classes",
+            "Low mobility despite relying heavily on height advantage",
+            "Charge is one of the weakest skillsets in the game, even with FFTC buffs",
+            "Extremely reliant on favorable map positioning",
+            "Guns outclass bows in literally every single way possible"
+        ],
+        "weapons": [
+            "Crossbows",
+            "Bows",
+            "Shields"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/archer-male.png",
+        "femaleSprite": "./sprites/archer-female.png"
+    },
+    "whiteMage": {
+        "description": "The traditional healer of the Final Fantasy series. Excelling at protection, the White Mage is the cornerstone of many early-to-mid game playthroughs in terms of versatility. Holy is an expensive but incredibly powerful assassination spell for boss fights and certain strategies. They also have a higher speed multiplier than most jobs, allowing them to become deceptively fast early in the game.\n\nBecause support magic is not guaranteed to hit allies, maintaining high Faith and good compatibility is important for consistency. Their durability is fairly low, but they remain a safe and reliable option for most of the game, even if they lack the offensive punch of Black Mages.",
+        "pros": [
+            "Holy is one of the best assassination tools in the game",
+            "High speed multiplier",
+            "Excellent suite of support spells for sustaining the party",
+            "Consistently strong throughout the game"
+        ],
+        "cons": [
+            "No access to rods limits offensive magic scaling",
+            "Reliant on high Faith and compatibility for consistent support",
+            "Low durability"
+        ],
+        "weapons": [
+            "Staves"
+        ],
+        "armor": [
+            "Robes",
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/whiteMage-male.png",
+        "femaleSprite": "./sprites/whiteMage-female.png"
+    },
+    "blackMage": {
+        "description": "The iconic magician of the Final Fantasy series. Excelling at large elemental AoE damage, the Black Mage is a cornerstone of many offensive strategies throughout a playthrough, despite how early it becomes available. With its high MA and access to powerful magic support tools, it can provide strong utility or specialize in overwhelming enemies with devastating spells.\n\nCareless casting can lead to MP shortages or accidental damage to allies. As enemies become faster later in the game, safely casting spells becomes more difficult, requiring careful positioning and timing.",
+        "pros": [
+            "Elemental damage makes many encounters trivial",
+            "Highest MA multiplier",
+            "Flexible magical utility with proper development",
+            "Excellent for farming and grinding strategies"
+        ],
+        "cons": [
+            "Early-game MP management can be difficult",
+            "Extremely low durability",
+            "Poor targeting can damage allies",
+            "Late-game enemy speed makes casting harder"
+        ],
+        "weapons": [
+            "Rods",
+            "Staves"
+        ],
+        "armor": [
+            "Robes",
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/blackMage-male.png",
+        "femaleSprite": "./sprites/blackMage-female.png"
+    },
+    "monk": {
+        "description": "One of the strongest physical powerhouses in the game, the Monk relies on unarmed combat to deliver massive damage. It also provides access to Counter and First Strike, two excellent reaction skills that make melee encounters far more manageable. With strong self-healing options and a reliance on high Brave, Monks deal more damage than expected while frequently triggering reaction abilities.\n\nOverall, the Monk is an exceptionally well-rounded job with high survivability and strong offensive presence, though it requires some setup to reach its full potential.",
+        "pros": [
+            "Physical damage scales strongly with Brave",
+            "Excellent self-sustain through healing abilities",
+            "Can attack from range with certain skills",
+            "Access to powerful reaction abilities like Counter and First Strike",
+            "4 Jump improves terrain traversal compared to many jobs"
+        ],
+        "cons": [
+            "Can be difficult to develop in the early game",
+            "Highly vulnerable to Brave reduction effects",
+            "Limited equipment options"
+        ],
+        "weapons": [
+            "Unarmed"
+        ],
+        "armor": [
+            "Clothes",
+            "Restricted Headgear"
+        ],
+        "maleSprite": "./sprites/monk-male.png",
+        "femaleSprite": "./sprites/monk-female.png"
+    },
+    "thief": {
+        "description": "A light-fingered rogue who steals equipment as well as hearts. While weak physically, their high mobility allows them to weave in and out of dangerous situations. Steal Heart is deceptively one of the best tools in the early and mid game for survivability, though it can only be used on targets of the opposite sex. As such, having both a male and female user can make certain encounters much easier.\n\nThieves also enable poaching, which provides access to some of the best equipment in the game, making them highly valuable for long-term progression.",
+        "pros": [
+            "High speed multiplier and excellent speed growth",
+            "4 Move natively, with Move +2 allowing exceptional mobility",
+            "Stealing equipment enables early access to powerful gear and unique items, such as the Genji set",
+            "Steal Heart provides strong crowd control",
+            "Poaching is extremely valuable in the late game"
+        ],
+        "cons": [
+            "Steal Heart is gender-restricted",
+            "Expensive to develop",
+            "Very low HP pool",
+            "Limited to knives, which are generally weak"
+        ],
+        "weapons": [
+            "Knives"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/thief-male.png",
+        "femaleSprite": "./sprites/thief-female.png"
+    },
+    "mystic": {
+        "description": "Commonly considered one of the weaker caster jobs at first glance, the Mystic specializes in debuffs and HP/MP manipulation. While it has the lowest MA among magic jobs, its late-game utility should not be underestimated. When built correctly, a Mystic can become a powerful enabler, draining resources, crippling enemies, and supporting other casters.\n\nWhile not always ideal for strict min-maxing due to its stats, Mystic abilities are essential for certain strategies, including setups that trivialize encounters or provide near-infinite MP for allied mages.",
+        "pros": [
+            "Trepidation can drastically reduce enemy Brave",
+            "Invigoration deals percentage-based HP damage, making it strong against bosses",
+            "Wide weapon selection compared to other casters",
+            "Defense Boost is a strong survivability reaction for many jobs",
+            "Disbelief enables powerful low-Faith strategies",
+            "Near-infinite MP through Empowerment and Manafont",
+            "Unique and visually distinct spell animations"
+        ],
+        "cons": [
+            "Lowest MA among caster jobs",
+            "Low spell hit rates early on",
+            "Highly reliant on compatibility, which can be inconsistent",
+            "Key abilities are expensive to unlock"
+        ],
+        "weapons": [
+            "Staves",
+            "Books",
+            "Poles",
+            "Rods"
+        ],
+        "armor": [
+            "Clothes",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/mystic-male.png",
+        "femaleSprite": "./sprites/mystic-female.png"
+    },
+    "summoner": {
+        "description": "Another iconic spellcaster, the Summoner is unique in that its AoE summons only ever benefit allies or harm enemies, even when both are within range. With the second-highest MA in the game behind Black Mage, Summoners are highly effective at delivering powerful magical utility.\n\nHowever, their low Speed multiplier makes them slower than much of your roster and more vulnerable to fast late-game enemies. It is often recommended to develop Summoner to learn its strongest abilities and then transition to another caster, though Summoners remain powerful units in their own right.",
+        "pros": [
+            "Summons never harm allies or benefit enemies within their AoE",
+            "Golem provides exceptional team-wide survivability",
+            "Summon magic can be used effectively by other magic jobs",
+            "Very high MP pool",
+            "High MA enables strong magical output"
+        ],
+        "cons": [
+            "Low Speed multiplier makes them slower than most jobs",
+            "Low survivability",
+            "Vulnerable to being eliminated before acting, especially late game"
+        ],
+        "weapons": [
+            "Rods",
+            "Staves"
+        ],
+        "armor": [
+            "Clothes",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/summoner-male.png",
+        "femaleSprite": "./sprites/summoner-female.png"
+    },
+    "orator": {
+        "description": "Using their words as weapons, the Orator can disrupt enemies in a variety of ways, from recruiting them to your side to significantly reducing their effectiveness. Their unique talk-based skillset enables strategies that no other job can replicate, especially when it comes to acquiring new units or controlling enemy behavior.\n\nThey also have access to guns, giving them solid ranged damage potential. However, outside of their unique abilities, their stats are generally underwhelming, and their overall utility can fall behind other jobs if those abilities are not being actively leveraged.",
+        "pros": [
+            "Can recruit enemies, allowing them to permanently join your team",
+            "Recruitment enables early access to powerful equipment from enemies",
+            "Access to guns provides reliable ranged damage",
+            "Can interact with monsters without requiring additional abilities",
+            "Mimic Daravon and Threaten offer excellent utility for many builds"
+        ],
+        "cons": [
+            "Low stats across the board",
+            "Generally outclassed by Chemist for gun-based roles",
+            "Talk skills scale with MA, making other jobs better for recruitment in some cases",
+            "Highly dependent on compatibility for consistent results"
+        ],
+        "weapons": [
+            "Knives",
+            "Guns"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/orator-male.png",
+        "femaleSprite": "./sprites/orator-female.png"
+    },
+    "timeMage": {
+        "description": "The King/Queen of support jobs. While their offensive capabilities are severely limited until they learn Meteor, the offensive utility Time Mage presents is absolutely critical to the success of more linear gameplay strategies. They are also implicitly the tankiest mage unit due to their unique ability to take damage in the form of MP before HP, which has no spillover. This means you can put Manafont on them, and they will need more than one person attacking them to ever really die. Also, Quick is probably the most broken spell in the game. They also have Teleport... which is the most broken movement skill in the game!",
+        "pros": [
+            "Access to some of the best buffs and debuffs in the game",
+            "High durability with the right skill setup",
+            "Often trivializes encounters as soon as mid-game begins",
+            "Teleport",
+            "Probably the most fun build options for a mage",
+            "Honestly, Teleport is just so broken. I had to say it twice for effect here."
+        ],
+        "cons": [
+            "Lower than average MA for a mage",
+            "You will run into MP issues if you make them tanky frontliners",
+            "Meteor is extremely expensive both in JP and MP. You will likely not even be able to cast it until later in the game, and even then not more than once or twice a map"
+        ],
+        "weapons": [
+            "Staves"
+        ],
+        "armor": [
+            "Clothes",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/timeMage-male.png",
+        "femaleSprite": "./sprites/timeMage-female.png"
+    },
+    "dragoon": {
+        "description": "Ever wondered what it would be like if Knights sacrificed Knight Swords for infinite jump height, 2-range melee attacks, and Reraise as a reaction skill? Dragoon is that answer. Essentially superior to Knight in many key areas, they boast high PA growth and multipliers, strong weapon options, and extremely consistent vertical mobility. They can even equip robes, allowing for hybrid builds similar to Knights.\n\nHowever, Jump can be difficult to use effectively and often isn't worth it if you're already in range of the enemy. Despite that, Dragoons are durable, powerful, and excel at assassination when built correctly.",
+        "pros": [
+            "Jump is strong for assassination tactics",
+            "Ignore Height is an extremely valuable movement skill",
+            "Lances have 2-range, making them excellent for safe melee attacks",
+            "High durability and strong PA multiplier at all stages of the game",
+            "Dragon Spirit provides Reraise as a reaction ability"
+        ],
+        "cons": [
+            "No access to lances until Chapter 2",
+            "Limited horizontal mobility",
+            "Jump can feel unintuitive and difficult to use effectively"
+        ],
+        "weapons": [
+            "Lances",
+            "Shields"
+        ],
+        "armor": [
+            "Heavy Armor",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/dragoon-male.png",
+        "femaleSprite": "./sprites/dragoon-female.png"
+    },
+    "geomancer": {
+        "description": "You either love them or you hate them. Geomancers boast high Move, solid base stats, and strong equipment options. They also have access to Geomancy, a set of map-dependent, free-cast abilities that deal damage and inflict status effects. These abilities scale with MA, which Geomancer has at a fairly average level.\n\nThey excel at poking and debuffing enemies from a distance while still functioning as capable backup fighters. However, they can struggle on the frontline without specific setups, such as Ice Brand + Ice Shield healing. Despite this, Geomancers are versatile and bring a surprising amount of utility to any job that leverages their toolkit.",
+        "pros": [
+            "Long-range poking and debuffing through Geomancy",
+            "Shields significantly improve survivability",
+            "4 Move provides strong positional control",
+            "Solid all-around physical stats allow flexible roles"
+        ],
+        "cons": [
+            "Cannot function as true frontliners due to lack of heavy armor",
+            "Geomancy damage output is relatively low",
+            "Terrain dependency can limit effectiveness on certain maps",
+            "Requires full development to reach peak effectiveness",
+            "Axes suck"
+        ],
+        "weapons": [
+            "Swords",
+            "Axes",
+            "Shields"
+        ],
+        "armor": [
+            "Clothes",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/geomancer-male.png",
+        "femaleSprite": "./sprites/geomancer-female.png"
+    },
+    "samurai": {
+        "description": "One of the more iconic jobs in the game, Samurai utilize a stock of Katanas to unleash a variety of effects on both allies and enemies. They also gain access to Shirahadori, widely considered one of the best reaction abilities in the game, which reduces the hit rate of incoming physical attacks by a large percentage of the unit's Brave.\n\nSamurai are strong frontline fighters with unique tools and strategies, but their full effectiveness comes at a steep cost. Maintaining a supply of Katanas for Iaido can be expensive, making them less appealing during the mid game when they first become available. If you want to properly support a Samurai, be prepared to invest heavily in resources. That said, they are powerful, versatile, and honestly just look really cool.",
+        "pros": [
+            "High PA combined with Shirahadori makes for exceptional survivability against physical attacks",
+            "Two Hands greatly boosts damage output with many weapon types",
+            "Katana abilities provide a wide range of utility and effects",
+            "Strong offensive presence with flexible build options"
+        ],
+        "cons": [
+            "Low mobility and below-average HP make them vulnerable to magic",
+            "Katanas can break when used for Iaido abilities",
+            "Very expensive to maintain",
+            "Requires grinding to sustain resources",
+            "No access to Katanas until midway through Chapter 2"
+        ],
+        "weapons": [
+            "Katana"
+        ],
+        "armor": [
+            "Heavy Armor",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/samurai-male.png",
+        "femaleSprite": "./sprites/samurai-female.png"
+    },
+    "ninja": {
+        "description": "Many consider Ninja to be the best job in the game, and for good reason. They have the highest Speed growth and multiplier, allowing them to act quickly—often multiple times before enemies, or even your own units, can respond when built effectively. They can naturally dual wield, enabling two attacks per action, which more than compensates for their lower PA. Throwing is also an excellent utility skill.\n\nWith incredible mobility, utility, and damage output, Ninja dominate most encounters. Their only real weakness is extremely low durability, with one of the lowest HP multipliers and growths in the game. Does that matter when everything dies first? Usually not. Just… don’t let them get charmed.",
+        "pros": [
+            "Best-in-class offensive capability",
+            "Highest Speed growth and multiplier",
+            "Innate dual wield enables two attacks per action",
+            "Excellent mobility with strong Move and Jump",
+            "Throwing provides cheap and effective ranged options",
+            "Can trivialize much of the game once developed"
+        ],
+        "cons": [
+            "Extremely low durability",
+            "Highly vulnerable to magic damage",
+            "Positioning mistakes can lead to instant death"
+        ],
+        "weapons": [
+            "Knives",
+            "Ninja Knives"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/ninja-male.png",
+        "femaleSprite": "./sprites/ninja-female.png"
+    },
+    "arithmetician": {
+        "description": "Simultaneously the worst and best job in the game. Arithmeticians are slower than molasses, have terrible base stats, and effectively cannot function in combat through normal means. So what gives?\n\nThe answer is mathematics. Arithmeticians can cast any non-summon spell they have learned from other magical schools instantly, for free, and without charge time, based on specific criteria such as level, CT, EXP, JP, or map position.\n\nThis enables some of the most infamous strategies in the game, such as using Holy with Math Skill to wipe entire armies with zero risk when paired with equipment like Chameleon Robe. While staying in the job itself is almost never worthwhile, transferring Math Skill to another job removes every downside.\n\nBe aware: relying on this will absolutely trivialize your game. You’ve been warned.",
+        "pros": [
+            "Math"
+        ],
+        "cons": [
+            "Extremely low stats, multipliers, and growths",
+            "Incredibly slow Speed multiplier",
+            "Practically unusable in direct combat",
+            "Must be paired with other jobs to be effective",
+            "Seriously, their speed is unbelievably bad"
+        ],
+        "weapons": [
+            "Books",
+            "Poles"
+        ],
+        "armor": [
+            "Clothes",
+            "Robes"
+        ],
+        "maleSprite": "./sprites/arithmetician-male.png",
+        "femaleSprite": "./sprites/arithmetician-female.png"
+    },
+    "bard": {
+        "description": "The weaker of the two gender-locked jobs, Bards are only available to male units and rely on MA for their healing effectiveness. Their songs apply map-wide effects that only benefit allies, which sounds powerful on paper. However, outside of healing songs, the actual stat boosts from Bard abilities are randomly applied, making them inconsistent.\n\nLike several other niche jobs, staying in Bard is generally not recommended due to poor HP and PA growths. That said, their abilities can still be useful in niche strategies or challenge runs. They are also the only job with access to harps, though only a few are actually worth using.",
+        "pros": [
+            "Can repeatedly and infinitely increase ally stats during a battle",
+            "Harps provide a serviceable ranged damage option",
+            "Move +3 is an extremely powerful mobility skill"
+        ],
+        "cons": [
+            "Poor growths and multipliers",
+            "Requires progressing through multiple magic jobs to unlock",
+            "Male-only, while female units are generally stronger for MA-based roles",
+            "Randomized song effects reduce consistency",
+            "Generally less effective than Dancer"
+        ],
+        "weapons": [
+            "Harps"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/bard-male.png",
+        "femaleSprite": "./sprites/bard-female.png"
+    },
+    "dancer": {
+        "description": "The stronger of the two gender-locked jobs, Dancer focuses on damaging and debuffing enemies rather than supporting allies like Bard. While their growths are generally poor, they make up for it with the ability to trivialize encounters through powerful map-wide debuffs.\n\nWith abilities like Slow Dance reducing enemy Speed to a crawl, or turning entire battlefields into frogs (yes), Dancers can completely dismantle enemy teams over time. While it is usually not ideal to remain in the job long-term, the utility they provide can turn difficult fights into effortless victories.",
+        "pros": [
+            "Slow Dance can trivialize many encounters",
+            "Can win fights without needing to reposition",
+            "Strong map-wide debuff utility",
+            "4 Dancers and 1 Bard is the most fun you can have online"
+        ],
+        "cons": [
+            "Poor weapon selection",
+            "Dances are RNG-based, similar to Bard songs",
+            "Extremely poor growths and base stats"
+        ],
+        "weapons": [
+            "Rugs",
+            "Knives"
+        ],
+        "armor": [
+            "Clothes"
+        ],
+        "maleSprite": "./sprites/dancer-male.png",
+        "femaleSprite": "./sprites/dancer-female.png"
+    },
+    "mime": {
+        "description": "Incredibly difficult to unlock, Mime is a unique job that has no abilities of its own and instead mimics actions previously taken by other units on the map. This can be either extremely powerful or completely useless depending on the situation.\n\nWhat truly stands out are its base stats and growths, which are among the highest in the game for PA, MA, and HP. Mime is central to deleveling strategies that can push units far beyond normal limits. While it can offer immense utility through mimicking powerful abilities like dances, math skills, and summons, it is also one of the hardest jobs to use effectively.\n\nRecommended for advanced players… or anyone who just wants to see what kind of chaos happens.",
+        "pros": [
+            "Best growths in the game for deleveling strategies",
+            "Extremely high durability",
+            "Can mimic powerful abilities instantly at no cost",
+            "Base Move/Jump of 4 allows strong positioning"
+        ],
+        "cons": [
+            "No access to weapons or armor. Good luck!",
+            "Extremely difficult to use effectively. Good luck!",
+            "Highly dependent on team composition. Good luck!"
+        ],
+        "weapons": [
+            "None"
+        ],
+        "armor": [
+            "None"
+        ],
+        "maleSprite": "./sprites/mime-male.png",
+        "femaleSprite": "./sprites/mime-female.png"
+    }
+
+}
