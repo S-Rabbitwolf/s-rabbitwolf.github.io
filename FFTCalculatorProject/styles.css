@@ -65,9 +65,7 @@ border: dotted rgba(255, 255, 166, 0.7) }
 border: dotted rgba(255, 0, 255, 0.7) }
 
 .jobHeader {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    text-align: center;
 }
 
 .jobHeader h3 {
@@ -77,6 +75,7 @@ border: dotted rgba(255, 0, 255, 0.7) }
 .jobSprites {
     display: flex;
     gap: 4px;
+    justify-content: center;
 }
 
 .jobSprites img {
