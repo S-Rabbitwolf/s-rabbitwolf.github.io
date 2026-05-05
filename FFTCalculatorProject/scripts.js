@@ -334,7 +334,7 @@ function addComparisonSegmentRow() {
         '<input class="comparison-from-level" type="number" min="1" max="99" value="' + startingLevel + '">' +
 
         '<label>To Level</label>' +
-        '<input class="comparison-to-level" type="number" min="' + (startingLevel + 1) + '" max="99" value="' + (startingLevel + 1) + '">';
+        '<input class="comparison-to-level" type="number" min="1" max="99" value="' + (startingLevel + 1) + '">';
 
     container.appendChild(segment);
 
