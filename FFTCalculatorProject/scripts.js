@@ -128,38 +128,52 @@ function calculateFFTStats(input) {
 
         const job = jobs[segment.job];
 
-        for (let level = segment.fromLevel; level < segment.toLevel; level++) {
+        if (segment.toLevel > segment.fromLevel) {
+            // Level up
+            for (let level = segment.fromLevel; level < segment.toLevel; level++) {
 
-            for (const stat of STAT_KEYS) {
+                for (const stat of STAT_KEYS) {
+                    const constant = job.constants[stat];
+                    const bonus = Math.floor(rawStats[stat] / (constant + level));
 
-                const constant = job.constants[stat];
+                    rawStats[stat] += bonus;
+                }
 
-                /* The formula for FFT growth on level up is as follows:
+                currentLevel = level + 1;
 
-                bonus = floor(currentRawStat / (C + level))
-
-                The lower C (constant) is, the better the growth
-                As level increases, growth slows implicitly.
-                */
-
-                // Stats do not increase until the next whole integer is reached.
-                const bonus = Math.floor(rawStats[stat] / (constant + level));
-
-                rawStats[stat] += bonus;
-
+                if (input.includeLevelBreakdown) {
+                    breakdown.push({
+                        level: currentLevel,
+                        job: segment.job,
+                        rawStats: cloneStats(rawStats)
+                    });
+                }
             }
+        }
+        if (segment.toLevel < segment.fromLevel) {
+            // Delevel
+            for (let level = segment.fromLevel; level > segment.toLevel; level--) {
 
-            currentLevel = level + 1;
+                for (const stat of STAT_KEYS) {
+                    const constant = job.constants[stat];
+                    const loss = Math.floor(rawStats[stat] / (constant + level));
 
-            if (input.includeLevelBreakdown) {
-                breakdown.push({
-                    level: currentLevel,
-                    job: segment.job,
-                    rawStats: cloneStats(rawStats)
-                });
+                    rawStats[stat] -= loss;
+                }
+
+                currentLevel = level - 1;
+
+                if (input.includeLevelBreakdown) {
+                    breakdown.push({
+                        level: currentLevel,
+                        job: segment.job,
+                        rawStats: cloneStats(rawStats)
+                    });
+                }
             }
         }
     }
+
 
     const displayJob = jobs[input.displayJob];
 
@@ -173,7 +187,6 @@ function calculateFFTStats(input) {
         breakdown: input.includeLevelBreakdown ? breakdown : undefined
     };
 }
-
 
 // The raw stats are then converted into displayed stats with the job's inherent modifier as discussed previously.
 
@@ -288,7 +301,7 @@ function addSegmentRow() {
         '<input class="from-level" type="number" min="1" max="99" value="' + startingLevel + '">' +
 
         '<label>To Level</label>' +
-        '<input class="to-level" type="number" min="' + (startingLevel + 1) + '" max="99" value="' + (startingLevel + 1) + '">';
+        '<input class="to-level" type="number" min="1" max="99" value="' + (startingLevel + 1) + '">';
 
     container.appendChild(segment);
 
@@ -341,8 +354,8 @@ function buildLevelPathFromSegments() {
             continue;
         }
 
-        if (toLevel <= fromLevel) {
-            alert("To Level must be higher than From Level.");
+        if (toLevel === fromLevel) {
+            alert("From Level and To Level cannot be the same.");
             return [];
         }
         // adds to end of array
@@ -375,13 +388,13 @@ function updateJobInfoPanel() {
     const details = jobDetails[selectedJob];
 
     document.getElementById("jobInfoContent").innerHTML =
-    '<div class="jobHeader">' +
+        '<div class="jobHeader">' +
         '<h3>' + formatJobName(selectedJob) + '</h3>' +
         '<div class="jobSprites">' +
         '<img src="' + details.maleSprite + '" alt="male sprite">' +
         '<img src="' + details.femaleSprite + '" alt="female sprite">' +
         '</div>' +
-    '</div>' +
+        '</div>' +
 
         '<p>' + details.description + '</p>' +
         '<h4>Equipment</h4>' +
@@ -389,7 +402,7 @@ function updateJobInfoPanel() {
         '<p>Armor: ' + details.armor.join(", ") + '</p>' +
 
         '<details>' +
-    '<summary>Show Growth Constants / Multipliers</summary>' +
+        '<summary>Show Growth Constants / Multipliers</summary>' +
 
         '<h4>Growth Constants</h4>' +
         '<p>HP: ' + job.constants.hp + '</p>' +
@@ -404,7 +417,7 @@ function updateJobInfoPanel() {
         '<p>Speed: ' + job.multipliers.speed + '</p>' +
         '<p>PA: ' + job.multipliers.pa + '</p>' +
         '<p>MA: ' + job.multipliers.ma + '</p>' +
-    '</details>';
+        '</details>';
 }
 
 
@@ -588,8 +601,8 @@ function buildComparisonPathFromSegments() {
             continue;
         }
 
-        if (toLevel <= fromLevel) {
-            alert("Comparison To Level must be higher than From Level.");
+        if (toLevel === fromLevel) {
+            alert("From Level and To Level cannot be the same.");
             return [];
         }
 
