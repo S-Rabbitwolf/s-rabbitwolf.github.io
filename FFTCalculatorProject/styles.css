@@ -124,6 +124,8 @@ select, input, button {
 
 button {
     cursor: pointer;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
 }
 
 button:hover {
