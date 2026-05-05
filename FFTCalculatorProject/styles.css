@@ -74,41 +74,22 @@ h3 {
 #jobInfoPanel,
 #guidePanel,
 #explanation {
-    border: 2px solid #444;
-    background: rgba(0, 0, 0, 0.05);
+     background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18),rgba(0, 0, 0, 0.18)),
+        rgba(190, 178, 140, 0.95);
+
+    border: 3px solid rgba(38, 48, 190, 1);
+
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.35),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.45);
+
+    color: rgba(20, 28, 150, 1);
+    padding: 18px;
     text-align: center;
 }
 
-
-#HeaderPanel {
-    background: rgba(255, 0, 0, 0.5);
-    border: dotted rgba(255, 0, 0, 0.7)
-}
-
-#calculatorPanel {
-    background: rgba(0, 255, 0, 0.5);
-    border: dotted rgba(0, 255, 0, 0.7);
-}
-
-#results {
-    background: rgba(0, 0, 255, 0.5);
-    border: dotted rgba(255, 255, 0, 0.7)
-}
-
-#jobInfoPanel {
-    background: rgba(255, 255, 0, 0.5);
-    border: dotted rgba(255, 127, 0, 0.7)
-}
-
-#guidePanel {
-    background: rgba(255, 0, 255, 0.5);
-    border: dotted rgba(255, 255, 166, 0.7)
-}
-
-#explanation {
-    background: rgba(0, 255, 255, 0.5);
-    border: dotted rgba(255, 0, 255, 0.7)
-}
 
 .jobHeader {
     text-align: center;
@@ -130,4 +111,21 @@ h3 {
     image-rendering: pixelated;
     object-fit: contain;
     background: rgba(0, 0, 0, 0.2);
+}
+
+
+select, input, button {
+    font-family: inherit;
+    background: rgba(245, 235, 190, 0.95);
+    border: 2px solid rgba(38, 48, 190, 1);
+    color: rgba(20, 28, 150, 1);
+    padding: 6px 8px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgba(255, 245, 205, 1);
 }
