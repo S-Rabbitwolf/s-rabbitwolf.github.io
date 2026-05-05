@@ -382,7 +382,7 @@ function updateJobInfoPanel() {
         '<p>Weapons: ' + details.weapons.join(", ") + '</p>' +
         '<p>Armor: ' + details.armor.join(", ") + '</p>' +
 
-        '<details>'
+        '<details>' +
     '<summary>Show Growth Constants / Multipliers</summary>' +
 
         '<h4>Growth Constants</h4>' +
@@ -397,8 +397,8 @@ function updateJobInfoPanel() {
         '<p>MP: ' + job.multipliers.mp + '</p>' +
         '<p>Speed: ' + job.multipliers.speed + '</p>' +
         '<p>PA: ' + job.multipliers.pa + '</p>' +
-        '<p>MA: ' + job.multipliers.ma + '</p>';
-    '</details>'
+        '<p>MA: ' + job.multipliers.ma + '</p>' +
+    '</details>';
 }
 
 
