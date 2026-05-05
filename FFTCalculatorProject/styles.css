@@ -70,6 +70,10 @@ border: dotted rgba(255, 0, 255, 0.7) }
     gap: 12px;
 }
 
+.jobHeader h3 {
+    margin: 0 auto;
+}
+
 .jobSprites {
     display: flex;
     gap: 4px;
