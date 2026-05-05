@@ -447,8 +447,7 @@
         "armor": [
             "Clothes"
         ],
-        "maleSprite": "./sprites/bard-male.png",
-        "femaleSprite": "./sprites/bard-female.png"
+        "maleSprite": "./sprites/bard-male.png"
     },
     "dancer": {
         "description": "The stronger of the two gender-locked jobs, Dancer focuses on damaging and debuffing enemies rather than supporting allies like Bard. While their growths are generally poor, they make up for it with the ability to trivialize encounters through powerful map-wide debuffs.\n\nWith abilities like Slow Dance reducing enemy Speed to a crawl, or turning entire battlefields into frogs (yes), Dancers can completely dismantle enemy teams over time. While it is usually not ideal to remain in the job long-term, the utility they provide can turn difficult fights into effortless victories.",
@@ -470,7 +469,7 @@
         "armor": [
             "Clothes"
         ],
-        "maleSprite": "./sprites/dancer-male.png",
+        
         "femaleSprite": "./sprites/dancer-female.png"
     },
     "mime": {
