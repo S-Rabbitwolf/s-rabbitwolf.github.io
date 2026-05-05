@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "Altima";
+    src: url("../assets/Altima.ttf") format("truetype");
+}
+
 body {
+    font-family: "Altima", serif;
     background:
         radial-gradient(
             circle at center,
@@ -8,6 +14,8 @@ body {
             rgba(0, 0, 0, 1) 100%
         );
 }
+
+
 
 #BigShell {
     display: grid;
