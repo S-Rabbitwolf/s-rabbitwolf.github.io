@@ -325,7 +325,7 @@ function addComparisonSegmentRow() {
             startingLevel = lastToLevel;
         }
     }
-
+    //Values automatically update according to last processed input whenever a new path is added.
     segment.innerHTML =
         '<label>Select Job</label>' +
         '<select class="job-select comparison-segment-job"></select>' +
@@ -340,7 +340,7 @@ function addComparisonSegmentRow() {
 
     populateSingleJobDropdown(segment.querySelector(".comparison-segment-job"));
 }
-
+//Interpreter for applying formula via leveling up or down according to final value
 function buildLevelPathFromSegments() {
     const segmentElements = document.querySelectorAll(".level-segment");
     const levelPath = [];
@@ -396,7 +396,13 @@ function updateJobInfoPanel() {
         '</div>' +
         '</div>' +
 
+
         '<p>' + details.description + '</p>' +
+        '<h4>Pros</h4>' +
+        '<ul>' + details.pros.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
+
+        '<h4>Cons</h4>' +
+        '<ul>' + details.cons.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>' +
         '<h4>Equipment</h4>' +
         '<p>Weapons: ' + details.weapons.join(", ") + '</p>' +
         '<p>Armor: ' + details.armor.join(", ") + '</p>' +

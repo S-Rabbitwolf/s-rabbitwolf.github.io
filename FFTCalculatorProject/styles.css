@@ -29,6 +29,10 @@ h3 {
     font-size: clamp(18px, 1.8vw, 24px);
 }
 
+h4 {
+    font-size: clamp(16px, 1.6vw, 20px);
+}
+
 #BigShell {
     display: grid;
     grid-template-columns: 280px 1fr 360px;
