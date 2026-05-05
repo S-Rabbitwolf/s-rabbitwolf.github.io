@@ -118,15 +118,15 @@ h3 {
 select, input, button {
     font-family: inherit;
     background: rgba(245, 235, 190, 0.95);
-    border: 2px solid rgba(38, 48, 190, 1);
-    color: rgba(20, 28, 150, 1);
+    border: 2px solid rgba(40, 30, 18, 1);
+    color: rgb(29, 22, 12);
     padding: 6px 8px;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
 }
 
 button {
     cursor: pointer;
-    letter-spacing: 0.5px;
-    font-size: 1.1em;
 }
 
 button:hover {
