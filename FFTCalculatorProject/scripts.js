@@ -375,7 +375,13 @@ function updateJobInfoPanel() {
     const details = jobDetails[selectedJob];
 
     document.getElementById("jobInfoContent").innerHTML =
+    '<div class="jobHeader">' +
         '<h3>' + formatJobName(selectedJob) + '</h3>' +
+        '<div class="jobSprites">' +
+        '<img src="' + details.maleSprite + '" alt="male sprite">' +
+        '<img src="' + details.femaleSprite + '" alt="female sprite">' +
+        '</div>' +
+    '</div>' +
 
         '<p>' + details.description + '</p>' +
         '<h4>Equipment</h4>' +

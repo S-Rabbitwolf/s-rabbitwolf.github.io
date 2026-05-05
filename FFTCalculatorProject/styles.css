@@ -55,3 +55,22 @@ border: dotted rgba(255, 255, 166, 0.7) }
 
 #explanation { background: rgba(0, 255, 255, 0.5);
 border: dotted rgba(255, 0, 255, 0.7) }
+
+.jobHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.jobSprites {
+    display: flex;
+    gap: 4px;
+}
+
+.jobSprites img {
+    width: 32px;
+    height: 36px;
+    image-rendering: pixelated;
+    object-fit: contain;
+    background: rgba(0,0,0,0.2);
+}
