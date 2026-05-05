@@ -378,6 +378,12 @@ function updateJobInfoPanel() {
         '<h3>' + formatJobName(selectedJob) + '</h3>' +
 
         '<p>' + details.description + '</p>' +
+        '<h4>Equipment</h4>' +
+        '<p>Weapons: ' + details.weapons.join(", ") + '</p>' +
+        '<p>Armor: ' + details.armor.join(", ") + '</p>' +
+
+        '<details>'
+    '<summary>Show Growth Constants / Multipliers</summary>' +
 
         '<h4>Growth Constants</h4>' +
         '<p>HP: ' + job.constants.hp + '</p>' +
@@ -392,6 +398,7 @@ function updateJobInfoPanel() {
         '<p>Speed: ' + job.multipliers.speed + '</p>' +
         '<p>PA: ' + job.multipliers.pa + '</p>' +
         '<p>MA: ' + job.multipliers.ma + '</p>';
+    '</details>'
 }
 
 
