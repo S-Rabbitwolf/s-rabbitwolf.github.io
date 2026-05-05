@@ -5,17 +5,29 @@
 
 body {
     font-family: "Altima", serif;
+    font-size: 18px;
+    line-height: 1.4;
     background:
-        radial-gradient(
-            circle at center,
+        radial-gradient(circle at center,
             rgba(58, 52, 40, 1) 0%,
             rgba(42, 37, 29, 1) 40%,
             rgba(20, 17, 13, 1) 70%,
-            rgba(0, 0, 0, 1) 100%
-        );
+            rgba(0, 0, 0, 1) 100%);
 }
 
 
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
 
 #BigShell {
     display: grid;
@@ -31,38 +43,72 @@ body {
         "explanation explanation explanation";
 }
 
-#HeaderPanel { grid-area: header; }
-#calculatorPanel { grid-area: calculator; }
-#results { grid-area: results; }
-#jobInfoPanel { grid-area: jobinfo; }
-#guidePanel { grid-area: guide; }
-#explanation { grid-area: explanation; }
+#HeaderPanel {
+    grid-area: header;
+}
+
+#calculatorPanel {
+    grid-area: calculator;
+}
+
+#results {
+    grid-area: results;
+}
+
+#jobInfoPanel {
+    grid-area: jobinfo;
+}
+
+#guidePanel {
+    grid-area: guide;
+}
+
+#explanation {
+    grid-area: explanation;
+}
 
 
-#HeaderPanel, #calculatorPanel, #results, #jobInfoPanel, #guidePanel, #explanation {
+#HeaderPanel,
+#calculatorPanel,
+#results,
+#jobInfoPanel,
+#guidePanel,
+#explanation {
     border: 2px solid #444;
     background: rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
 
-#HeaderPanel { background: rgba(255, 0, 0, 0.5);
-border: dotted rgba(255, 0, 0, 0.7) }
+#HeaderPanel {
+    background: rgba(255, 0, 0, 0.5);
+    border: dotted rgba(255, 0, 0, 0.7)
+}
 
-#calculatorPanel { background: rgba(0, 255, 0, 0.5);
-border: dotted rgba(0, 255, 0, 0.7); }
+#calculatorPanel {
+    background: rgba(0, 255, 0, 0.5);
+    border: dotted rgba(0, 255, 0, 0.7);
+}
 
-#results { background: rgba(0, 0, 255, 0.5);
-border: dotted rgba(255, 255, 0, 0.7) }
+#results {
+    background: rgba(0, 0, 255, 0.5);
+    border: dotted rgba(255, 255, 0, 0.7)
+}
 
-#jobInfoPanel { background: rgba(255, 255, 0, 0.5);
-border: dotted rgba(255, 127, 0, 0.7) }
+#jobInfoPanel {
+    background: rgba(255, 255, 0, 0.5);
+    border: dotted rgba(255, 127, 0, 0.7)
+}
 
-#guidePanel { background: rgba(255, 0, 255, 0.5);
-border: dotted rgba(255, 255, 166, 0.7) }
+#guidePanel {
+    background: rgba(255, 0, 255, 0.5);
+    border: dotted rgba(255, 255, 166, 0.7)
+}
 
-#explanation { background: rgba(0, 255, 255, 0.5);
-border: dotted rgba(255, 0, 255, 0.7) }
+#explanation {
+    background: rgba(0, 255, 255, 0.5);
+    border: dotted rgba(255, 0, 255, 0.7)
+}
 
 .jobHeader {
     text-align: center;
@@ -83,5 +129,5 @@ border: dotted rgba(255, 0, 255, 0.7) }
     height: 36px;
     image-rendering: pixelated;
     object-fit: contain;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
