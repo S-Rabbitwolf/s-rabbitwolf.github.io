@@ -184,6 +184,8 @@ button:hover {
         background: rgba(30, 24, 16, 0.9);
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
+        align-self: stretch;
     }
 
 
@@ -223,9 +225,8 @@ button:hover {
     #calculatorPanel,
     #results,
     #guidePanel,
-    #explanation,
-    #mobileNav {
-        width: 100%;
+    #explanation {
+    width: 100%;
         max-width: 700px;
         margin: 0 auto 20px;
     }

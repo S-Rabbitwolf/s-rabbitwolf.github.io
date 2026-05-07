@@ -191,7 +191,7 @@ function calculateFFTStats(input) {
 // The raw stats are then converted into displayed stats with the job's inherent modifier as discussed previously.
 
 function calculateDisplayStats(rawStats, job) {
-
+    //FFT cannot go past 999 HP/MP and 99 in other stats.
     const caps = {
         hp: 999,
         mp: 999,
@@ -455,6 +455,11 @@ function updatePreview() {
         return;
     }
 
+    if (levelPath[0].fromLevel !== 1) {
+        alert("The first job path must start at level 1.");
+        return;
+}
+
 
     // Ensures that the multiplier only applies to the final job selected. Multipliers do not affect C growths.
     const finalSegment = levelPath[levelPath.length - 1];
@@ -505,6 +510,11 @@ function updatePreview() {
         if (comparisonPath.length === 0) {
             document.getElementById("comparisonOutput").textContent =
                 "No custom comparison for jobs selected.";
+            return;
+        }
+
+        if (comparisonPath[0].fromLevel !== 1) {
+            alert("The first comparison path must start at level 1.");
             return;
         }
 
