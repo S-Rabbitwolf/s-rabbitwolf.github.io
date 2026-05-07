@@ -179,9 +179,11 @@ button:hover {
         top: 0;
         z-index: 1000;
         gap: 8px;
-        overflow-x: auto;
+        overflow-x: hidden;
         padding: 8px;
         background: rgba(30, 24, 16, 0.9);
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
 
@@ -221,7 +223,8 @@ button:hover {
     #calculatorPanel,
     #results,
     #guidePanel,
-    #explanation {
+    #explanation,
+    #mobileNav {
         width: 100%;
         max-width: 700px;
         margin: 0 auto 20px;
