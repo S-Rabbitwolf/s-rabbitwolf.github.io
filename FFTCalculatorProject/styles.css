@@ -175,7 +175,7 @@ button:hover {
 
     #mobileNav {
         display: flex;
-        position: sticky;
+        position: fixed;
         top: 0;
         z-index: 1000;
         gap: 8px;
