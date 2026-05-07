@@ -262,6 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("jobInfoSelect").addEventListener("change", function () {
             updateJobInfoPanel();
+            this.selectedIndex = 0;
         });
 
         updateJobInfoPanel();
