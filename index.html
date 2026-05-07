@@ -11,35 +11,44 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgba(73, 35, 73, 1);
-    padding: 12vh 0 0 0;
+    padding: 3rem 1rem;
     color: #f3e9f8;
     margin: 0;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 /* Wrapping for content hub stuff */
 
+main {
+    width: 100%;
+    max-width: 700px;
+}
 
-#randomQuestion, #boringFact, #courseworkLinks, #interestingArticle, #slangThatNeedsToGo {
+#randomQuestion, #boringFact, #courseworkLinks, #interestingArticle, #slangThatNeedsToGo, #Fantasy {
     max-width: 600px;
     width: 100%;
     background: rgba(24, 12, 34, 0.9);
     border: 2px solid rgba(231, 118, 226, 0.7);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    margin: 2rem;
-    padding: 1rem 1.5rem;
+    margin: 1.5rem auto;
+    padding: 1.25rem 1.5rem;
     align-items: center;
+    box-sizing: border-box;
+}
+
+#Fantasy {
+    text-align: center;
 }
 
 #coolPic {
     max-width: 600px;
     width: 100%;
-    margin: 2rem;
-    padding: 1rem 1rem;
+    margin: 1.5rem auto;
+    padding: 1.25rem 1.5rem;
     background: rgba(24, 12, 34, 0.9);
     border: 2px solid rgba(231, 118, 226, 0.7);
     border-radius: 12px;
@@ -47,13 +56,16 @@ body {
     align-items: center;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
 }
 
 #coolPic img {
     max-width: 450px;
+    width: 100%;
     max-height: 600px;
     object-fit: contain;
-    border: 2px solid rgba(231, 118, 226, 0.7)
+    border: 2px solid rgba(231, 118, 226, 0.7);
+    border-radius: 8px;
 }
 
 header {
@@ -69,6 +81,7 @@ h1 {
     animation: wobble 6s ease-in-out infinite;
     text-shadow: 3px 3px 6px rgba(0,200,0,0.35);
     transform-origin:center;
+    margin: 0;
 }
 
 
@@ -88,22 +101,24 @@ h2 {
 }
 
 p {
-    margin: 0;
+    margin: 0.5rem 0;
     font-size: 0.95rem;
+    line-height: 1.4;
     opacity: 0.95;
 }
 
 li {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
 }
 
 section {
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
 }
 
 section:hover {
-    transform:scale(1.06);
+    transform:scale(1.03);
     z-index: 1;
 }
 
@@ -124,11 +139,11 @@ section:hover {
             <p><a href="https://github.com/S-Rabbitwolf/S-Rabbitwolf.github.io/tree/main">Github repository</a></p>
             <p>Tiny Projects:</p>
             <ol start="4">
-                <li>Coming Soon!</li>
-                <li>Coming Soon! But not as soon as the last one.</li>
-                <li>...Also coming soon.</li>
+                <li><a href="https://s-rabbitwolf.github.io/tic-tac-toe/index.html">Tic-Tac-Toe</a></li>
+                <li><a href="https://s-rabbitwolf.github.io/memory-game/index.html">Memory Game</a></li>
+                <li><a href="https://s-rabbitwolf.github.io/weather-app/index.html">Weather Project</a></li>
             </ol>
-            <p><a href="https://media1.tenor.com/m/_BiwWBWhYucAAAAd/what-huh.gif">Major Project, Which Will Someday, Inevitably Appear Here</a></p>
+            <p><a href="https://s-rabbitwolf.github.io/FFTCalculatorProject/index.html">Final Fantasy Tactics: Arithmetician Project</a></p>
         </section>
 
         <section id="randomQuestion">
@@ -158,6 +173,10 @@ section:hover {
             <h2>Check Out This Cool Rabbit™</h2>
             <p><img src="https://images.unsplash.com/photo-1596982061417-3a686a450552?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></p>
             <p><strong>Credit:</strong> Guillermo Casales</p>
+        </section>
+
+        <section id="Fantasy">
+            <h2><a href=https://youtu.be/3NihSkvrKyk></a>Fantasy Lives On...</a></h2>
         </section>
 
     </main>
