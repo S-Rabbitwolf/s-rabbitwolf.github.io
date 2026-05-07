@@ -101,6 +101,7 @@ h4 {
 }
 
 
+
 .jobHeader {
     text-align: center;
 }
@@ -144,10 +145,16 @@ button:hover {
     background: rgba(255, 245, 205, 1);
 }
 
+#jobInfoPanel label {
+    display: block;
+}
+
 #jobInfoPanel ul {
     text-align: left;
     padding-left: 6px;
 }
+
+
 
 #mobileNav {
     display: none;
