@@ -141,3 +141,42 @@ button:hover {
     text-align: left;
     padding-left: 6px;
 }
+
+#mobileNav {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    #BigShell {
+        display: block;
+        padding: 12px;
+    }
+
+    #mobileNav {
+        display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 8px;
+        background: rgba(30, 24, 16, 0.9);
+    }
+
+    #mobileNav a {
+        flex: 0 0 auto;
+        color: rgba(190, 178, 140, 0.95);
+        padding: 6px 10px;
+        border: 1px solid rgba(190, 178, 140, 1);
+    }
+
+    #HeaderPanel, #jobInfoPanel, #calculatorPanel, #results, #guidePanel, #explanation {
+        min-height: 85vh;
+        margin-bottom: 20px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
