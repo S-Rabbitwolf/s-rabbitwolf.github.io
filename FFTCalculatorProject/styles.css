@@ -205,7 +205,7 @@ button:hover {
     #results,
     #guidePanel,
     #explanation {
-        margin-bottom: 20px;
+        margin: 0 auto 20;
     }
 
     html {
