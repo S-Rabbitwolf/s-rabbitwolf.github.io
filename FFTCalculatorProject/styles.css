@@ -185,7 +185,6 @@ button:hover {
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-        align-self: stretch;
     }
 
 
