@@ -1,3 +1,8 @@
+/* simple hacky test way to prevent Bard and Dancer from rendering nonexistent female/male sprites respectively */
+img[src="undefined"] {
+    display: none;
+}
+
 @font-face {
     font-family: "Altima";
     src: url("../assets/Altima.ttf") format("truetype");
