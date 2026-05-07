@@ -372,7 +372,9 @@ function buildLevelPathFromSegments() {
 }
 
 function populateSingleJobDropdown(dropdown) {
+    if (dropdown.id !== "jobInfoSelect") {
     dropdown.innerHTML = "";
+}
 
     for (const jobKey of Object.keys(fftData.jobs)) {
         const option = document.createElement("option");
