@@ -257,6 +257,11 @@ button:hover {
 
     }
     
+    body {
+        padding-top:80px;
+    }
+
+
     html {
         scroll-behavior: smooth;
     }
