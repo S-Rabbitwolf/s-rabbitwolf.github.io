@@ -177,9 +177,9 @@ button:hover {
         position: fixed;
         top: 0;
         z-index: 1000;
-        gap: 8px;
+        gap: 3px;
         overflow-x: hidden;
-        padding: 8px;
+        padding: 3px;
         background: rgba(30, 24, 16, 0.9);
         justify-content: center;
         flex-wrap: wrap;
@@ -257,9 +257,6 @@ button:hover {
 
     }
     
-    body {
-        padding-top:80px;
-    }
 
 
     html {
