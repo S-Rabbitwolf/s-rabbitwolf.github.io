@@ -146,7 +146,7 @@ button:hover {
 }
 
 #jobInfoPanel label {
-    display: block;
+    display: flex;
 }
 
 #jobInfoPanel ul {
@@ -162,6 +162,10 @@ button:hover {
 
 
 @media (max-width: 768px) {
+    * {
+        box-sizing: border-box;
+    }
+    
     #BigShell {
         display: flex;
         flex-direction: column;
