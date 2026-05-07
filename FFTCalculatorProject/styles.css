@@ -177,9 +177,9 @@ button:hover {
         position: fixed;
         top: 0;
         z-index: 1000;
-        gap: 3px;
+        gap: 1px;
         overflow-x: hidden;
-        padding: 3px;
+        padding: 1px;
         background: rgba(30, 24, 16, 0.9);
         justify-content: center;
         flex-wrap: wrap;
