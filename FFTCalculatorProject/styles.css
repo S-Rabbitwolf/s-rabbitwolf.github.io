@@ -159,6 +159,10 @@ button:hover {
     display: none;
 }
 
+#pathpanel {
+    display: none
+}
+
 
 @media (max-width: 768px) {
     * {
@@ -263,3 +267,4 @@ button:hover {
         scroll-behavior: smooth;
     }
 }
+
